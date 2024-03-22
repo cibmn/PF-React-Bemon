@@ -8,11 +8,12 @@ function App() {
 
   return (
     <div>
+{/*       <div className="background-container"> */}
       <Navbar />
-      <Counter />
       <ItemListContainer />
+      <Counter />
       <Footer />
-
+{/*       </div> */}
     </div>
   );
 }
