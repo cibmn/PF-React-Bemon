@@ -1,0 +1,13 @@
+.counterContainer {
+    position: fixed;
+    top: 110px; 
+    right: 30px; 
+    display: flex;
+    align-items: center;
+  }
+  
+  .counterContainer button {
+    margin: 0 15px;
+    padding: 5px 6px;
+  }
+
