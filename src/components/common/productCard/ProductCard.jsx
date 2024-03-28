@@ -9,11 +9,8 @@ const ProductCard = ( props ) => {
       
           <h3>{titulo}</h3>
           <h4>{descripcion}</h4>
-          <h4>{precio}</h4>
+          <h4>Precio: ${precio}</h4>
 
-
-
-          
     </div>
   )
 }

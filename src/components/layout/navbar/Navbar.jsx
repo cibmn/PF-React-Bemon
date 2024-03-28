@@ -1,6 +1,7 @@
 import ShoppingBagTwoToneIcon from "@mui/icons-material/ShoppingBagTwoTone";
 import { Badge } from "@mui/material";
 import "./Navbar.css";
+import CartWidget from '../../common/cartWidget/CartWidget';
 
 export const Navbar = () => {
   return (
@@ -19,17 +20,27 @@ export const Navbar = () => {
         <ul>
           <li className="navItem">
             <a href="#" className="navbarLink">
-              Home
+              New Arrivals
             </a>
           </li>
           <li className="navItem">
             <a href="#" className="navbarLink">
-              About
+              Mats
             </a>
           </li>
           <li className="navItem">
             <a href="#" className="navbarLink">
-              Contact us
+              Props & Accessories
+            </a>
+          </li>
+          <li className="navItem">
+            <a href="#" className="navbarLink">
+              Sale
+            </a>
+          </li>
+          <li className="navItem">
+            <a href="#" className="navbarLink">
+              Community
             </a>
           </li>
           <li className="navItem">
@@ -41,16 +52,7 @@ export const Navbar = () => {
       </div>
 
       <div className="rightSection">
-        <Badge
-          anchorOrigin={{
-            vertical: "top",
-            horizontal: "left",
-          }}
-          badgeContent={1}
-          color="secondary"
-        >
-          <ShoppingBagTwoToneIcon color="action" />
-        </Badge>
+      <CartWidget badgeContent={1} /> 
       </div>
     </div>
   );
