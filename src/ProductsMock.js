@@ -6,6 +6,10 @@ export const products = [
     price: 20000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138602/111011460-Mats-PRO71-Elderberry-04_adfxhs.jpg",
     stock: 15,
+    type: ["mats", "new"],
+    color: ["black", "blue", "green"],
+    size: ["180cm", "215cm"],
+
   },
   {
     id: 2,
@@ -14,6 +18,10 @@ export const products = [
     price: 30000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138612/811ym9UqPOL._AC_UF1000_1000_QL80__vlwc7s.jpg",
     stock: 10,
+    type: ["mats", "new"],
+    color: ["black", "blue", "green"],
+    size: ["180cm", "215cm"],
+
   },
   {
     id: 3,
@@ -22,6 +30,10 @@ export const products = [
     price: 40000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138625/2132md-pro-71-111011010-mats-black_041-2f0c2e0518e2b820be16312784639854-640-0_cvjhq5.jpg",
     stock: 7,
+    type: "mats",
+    color: ["black", "blue", "green"],
+    size: ["180cm", "215cm"],
+
   },
   {
     id: 4,
@@ -30,6 +42,10 @@ export const products = [
     price: 20000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138602/111011460-Mats-PRO71-Elderberry-04_adfxhs.jpg",
     stock: 3,
+    type: "mats",
+    color: ["blue", "green"],
+    size: "160cm",
+
   },
   {
     id: 5,
@@ -38,6 +54,10 @@ export const products = [
     price: 30000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138612/811ym9UqPOL._AC_UF1000_1000_QL80__vlwc7s.jpg",
     stock: 20,
+    type: ["mats", "sale"],
+    color: "blue",
+    size: "160cm",
+
   },
   {
     id: 6,
@@ -46,22 +66,69 @@ export const products = [
     price: 60000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138625/2132md-pro-71-111011010-mats-black_041-2f0c2e0518e2b820be16312784639854-640-0_cvjhq5.jpg",
     stock: 45,
+    type: ["mats", "sale"],
+    color: ["black-white", "blue-green", "green-grey"],
+    size: ["180cm", "215cm"],
+
   },
   {
     id: 7,
-    title: "Brick - pvc ",
+    title: "Yoga Brick - pvc ",
     description: "Taco de goma eva 20x10x5cm",
     price: 10000,
-    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138602/111011460-Mats-PRO71-Elderberry-04_adfxhs.jpg",
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668148/images_rwnqxy.jpg",
     stock: 50,
+    type: "props",
+    color: ["blue", "green"],
+    size: ["20x13x5cm"],
+
   },
   {
     id: 8,
     title: "Towel Yogi Agni",
-    description: "Toalla de auto secando con textura",
+    description: "Toalla de auto secando con grip",
     price: 800000,
-    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138612/811ym9UqPOL._AC_UF1000_1000_QL80__vlwc7s.jpg",
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668158/images_gompub.jpg",
     stock: 47,
+    type: "props",
+    color: ["black-white", "blue-green", "green-grey"],
+    size: ["180cm", "215cm"],
+  },
+  {
+    id: 9,
+    title: "Yoga bag",
+    description: "Bolso para llevar tu mat y pertenecias",
+    price: 800000,
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668162/yoga-mat-bags-600-aruna_wdcnpp.png",
+    stock: 47,
+    type: "props",
+    color: ["dark blue", "grey"],
+    size: "universal",
+
+  },
+  {
+    id: 10,
+    title: "Post-practice shirt",
+    description: "Remera oversize post-práctica",
+    price: 800000,
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668426/asana-tee_clay_urban-goddess-torso_RAW_6-400x480_y8qnlm.jpg",
+    stock: 47,
+    type: "props",
+    color: ["black", "white", "blue", "red", "green", "grey", "orange"],
+    size: "único",
+
+  },
+  {
+    id: 11,
+    title: "Cozy Yogi Short",
+    description: "Pantalón para una practica cómoda",
+    price: 800000,
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668365/212236-800-800_jnotoa.webp",
+    stock: 47,
+    type: "props",
+    color: ["black", "blue", "grey"],
+    size: [1, 2, 3],
+
   }
 ];
 

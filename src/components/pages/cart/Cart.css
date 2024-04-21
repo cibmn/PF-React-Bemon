@@ -1,0 +1,33 @@
+.cart {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 120px; 
+}
+  
+  .cart h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .cart h2 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .cart ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cart li {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  
+  .cart p {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  

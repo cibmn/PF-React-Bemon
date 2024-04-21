@@ -1,28 +1,16 @@
+// Cart.jsx
+import React from "react";
+import "./Cart.css"; // Importa el archivo CSS
 
-const Cart = ({ productosAgregados, cuponDescuento }) => {
+const Cart = () => {
   return (
-    <div>
-      <h1>Ya casi es tuyo!</h1>
-      {productosAgregados.length > 0 ? (
+    <div className="cart">
+      <h1>¡Ya casi es tuyo!</h1>
+      <p>Productos agregados: ninguno por ahora. ¡Ve por uno!</p>
         <div>
-          <h2>Productos Agregados:</h2>
-          <ul>
-            {productosAgregados.map((producto, index) => (
-              <li key={index}>{producto.nombre}</li>
-            ))}
-          </ul>
+          <h2>Tienes cupón de descuento?</h2>
         </div>
-      ) : (
-        <p>No hay productos en el carrito.</p>
-      )}
-      {cuponDescuento && (
-        <div>
-          <h2>Cupón de Descuento:</h2>
-          <p>{cuponDescuento}</p>
-        </div>
-      )}
     </div>
   );
 };
-
 export default Cart;

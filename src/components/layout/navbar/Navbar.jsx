@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 export const Navbar = ({ toggleCartVisibility }) => {
   const handleCartClick = () => {
-    console.log("Cart clicked");
+    console.log("Cart clicked"); // Verificar si se llama correctamente al hacer clic en el icono del carrito
     toggleCartVisibility();
   };
 
@@ -27,7 +27,7 @@ export const Navbar = ({ toggleCartVisibility }) => {
       <div className="centerSection">
         <ul>
           <li className="navItem">
-            <Link to="/" className="navbarLink">
+            <Link to="/mats" className="navbarLink">
               Mats
             </Link>
           </li>
@@ -37,22 +37,22 @@ export const Navbar = ({ toggleCartVisibility }) => {
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/propsAccessories" className="navbarLink">
+            <Link to="/PropsAccessories" className="navbarLink">
               Props & Accessories
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/sale" className="navbarLink">
+            <Link to="/Sale" className="navbarLink">
               Sale
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/community" className="navbarLink">
+            <Link to="/Community" className="navbarLink">
               Community
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/more" className="navbarLink">
+            <Link to="/More" className="navbarLink">
               More
             </Link>
           </li>
@@ -60,12 +60,10 @@ export const Navbar = ({ toggleCartVisibility }) => {
       </div>
 
       <div className="rightSection">
-        {/* Otros iconos en el lado derecho */}
         <SearchIcon className="navbarIcon" />
         <AccountCircleIcon className="navbarIcon" />
         <LocationOnIcon className="navbarIcon" />
-        {/* Pasa la función handleCartClick al prop onClick de CartWidget */}
-        <CartWidget badgeContent={1} onClick={handleCartClick} />
+        <CartWidget badgeContent={1} toggleCartVisibility={handleCartClick} />
       </div>
     </div>
   );

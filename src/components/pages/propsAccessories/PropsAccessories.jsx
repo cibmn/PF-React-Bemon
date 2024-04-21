@@ -1,24 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from "../../common/productCard/ProductCard";
 import { Grid } from "@mui/material/";
-import { useParams } from 'react-router-dom';
-
 import { products } from "../../../ProductsMock";
 
-const ItemListContainer = () => {
-  const saludo = "Estás buscando el mat ideal? Prueba nuestra encuesta y encuéntralo!";
+const PropsAccessories = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const { category } = useParams(); 
 
   useEffect(() => {
-    const filtered = category ? products.filter(product => product.type === category) : products;
+    const filtered = products.filter(product => product.type.includes("props"));
     setFilteredProducts(filtered);
-  }, [category]); 
+  }, []);
 
   return (
-    <div>
-      <p style={{ marginTop: "120px", textAlign: "center", fontSize: "1.5rem" }}>{saludo}</p>
-      
+    <div style={{ marginTop: "120px" }}>
+      <h1>Props & Accessories</h1>
       <Grid container justifyContent="center" spacing={2}>
         {filteredProducts.map(product => (
           <Grid
@@ -36,7 +31,7 @@ const ItemListContainer = () => {
               img={product.image}
               id={product.id}
               stock={product.stock}
-              addToCart={() => {}}
+              addToCart={() => {}} // Para implementar más adelante
             />
           </Grid>
         ))}
@@ -45,4 +40,4 @@ const ItemListContainer = () => {
   );
 };
 
-export default ItemListContainer;
+export default PropsAccessories;

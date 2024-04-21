@@ -22,31 +22,37 @@ const ProductCard = ({
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState("");
 
-  const handleIncrementQuantity = () => {
-    if (quantity < stock) {
-      setQuantity(quantity + 1);
-    }
-  };
+const handleIncrementQuantity = () => {
+  const newQuantity = quantity + 1;
+  if (newQuantity > stock) {
+    setQuantity(stock);
+    setError("No hay suficiente stock disponible");
+  } else {
+    setQuantity(newQuantity);
+    setError("");
+  }
+};
+
 
   const handleDecrementQuantity = () => {
     if (quantity > 0) {
       setQuantity(quantity - 1);
+      setError("");
     }
   };
 
   const handleAddToCart = () => {
-    if (quantity > 0) {
-      if (quantity <= stock) {
-        addToCart({ id, title, price, quantity });
-        setQuantity(0);
-        setError("");
-      } else {
-        setError("No hay suficiente stock disponible");
-      }
-    } else {
+    if (quantity === 0) {
       setError("Por favor selecciona al menos 1 cantidad.");
+    } else if (quantity > stock) {
+      setError("No hay suficiente stock disponible");
+    } else {
+      addToCart({ id, title, price, quantity });
+      setQuantity(0);
+      setError("");
     }
   };
+  
 
   return (
     <Card sx={{ width: 345 }}>

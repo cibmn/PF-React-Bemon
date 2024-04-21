@@ -1,3 +1,4 @@
+// Layout.jsx
 import React, { useState } from "react";
 import { Footer } from "./footer/Footer";
 import { Navbar } from "./navbar/Navbar";
@@ -7,7 +8,7 @@ export const Layout = () => {
   const [cartVisible, setCartVisible] = useState(false);
 
   const toggleCartVisibility = () => {
-    console.log("Toggle cart visibility"); // Verificar si se invoca correctamente
+    console.log("Toggle cart visibility called"); // Verificar si se invoca correctamente
     setCartVisible(!cartVisible);
   };
 
@@ -16,6 +17,7 @@ export const Layout = () => {
   return (
     <div>
       <Navbar toggleCartVisibility={toggleCartVisibility} />
+      {cartVisible ? <CartContainer /> : <div>Error: Cart not visible</div>}
       <Outlet />
       <Footer />
     </div>
