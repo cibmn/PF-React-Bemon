@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from "react";
 import ProductCard from "../../common/productCard/ProductCard";
 import { Grid, Button } from "@mui/material/";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { products } from "../../../ProductsMock";
 
 const ItemListContainer = () => {
   const saludo = "Estás buscando el mat ideal? Prueba nuestra encuesta y encuéntralo!";
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const addToCart = (product) => {
-    // Lógica para agregar el producto al carrito
-  };
 
   useEffect(() => {
     console.log(products); // Verifica si los productos se cargan correctamente
     setFilteredProducts(products);
   }, []);
+
+  const handleAddToCart = (productId, quantity) => {
+    // Aquí implementa la lógica para agregar el producto al carrito
+    console.log(`Agregando ${quantity} unidades del producto con ID ${productId} al carrito.`);
+  };
 
   return (
     <div>
@@ -36,8 +38,8 @@ const ItemListContainer = () => {
               price={product.price}
               img={product.image}
               id={product.id}
-              stock={product.stock}
-              addToCart={addToCart}
+              stock={product.stock} // Pasamos el stock como prop al ProductCard
+              addToCart={handleAddToCart} // Pasamos la función addToCart como prop
             />
           </Grid>
         ))}

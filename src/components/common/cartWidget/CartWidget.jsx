@@ -1,23 +1,27 @@
-import React from 'react';
 import ShoppingBagTwoToneIcon from "@mui/icons-material/ShoppingBagTwoTone";
 import { Badge } from "@mui/material";
+import { Link } from 'react-router-dom'; 
+import "./CartWidget.css"; 
 
-const CartWidget = (props) => {
-  const { badgeContent } = props;
-
+const CartWidget = ({ badgeContent }) => {
   return (
-    <div>
-      <Badge
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "left",
-        }}
-        badgeContent={badgeContent}
-        color="secondary"
-      >
-        <ShoppingBagTwoToneIcon color="action" />
-      </Badge>
-    </div>
+    <span>
+      <Link to="/cart" className="cartLink"> 
+        <Badge
+          anchorOrigin={{
+            vertical: "top",
+            horizontal: "left",
+          }}
+          badgeContent={badgeContent}
+          color="secondary"
+          className="badgeContainer"
+        >
+          <div className="iconContainer">
+            <ShoppingBagTwoToneIcon color="action" className="bagIcon" />
+          </div>
+        </Badge>
+      </Link>
+    </span>
   );
 };
 

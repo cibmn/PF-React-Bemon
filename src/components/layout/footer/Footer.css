@@ -8,3 +8,12 @@
     text-align: center;
     padding: 10px 0;
 }
+
+.footer .socialIcons {
+    margin-top: 0.3rem;
+    margin-bottom: 0.3rem;
+}
+
+.footer .socialIcons a {
+    margin: 0 0.4rem;
+}
