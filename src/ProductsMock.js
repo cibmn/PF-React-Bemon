@@ -1,7 +1,7 @@
 export const products = [
   {
     id: 1,
-    title: "Mat Eco Ling",
+    title: "Eko Ling",
     description: "100% reciclable - duración de por vida.",
     price: 20000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138602/111011460-Mats-PRO71-Elderberry-04_adfxhs.jpg",
@@ -9,11 +9,10 @@ export const products = [
     type: ["mats", "new"],
     color: ["black", "blue", "green"],
     size: ["180cm", "215cm"],
-
   },
   {
     id: 2,
-    title: "Mat Pro Lite",
+    title: "Pro Lite",
     description: "Espesor ideal, livinado y de excelente grip.",
     price: 30000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138612/811ym9UqPOL._AC_UF1000_1000_QL80__vlwc7s.jpg",
@@ -21,11 +20,10 @@ export const products = [
     type: ["mats", "new"],
     color: ["black", "blue", "green"],
     size: ["180cm", "215cm"],
-
   },
   {
     id: 3,
-    title: "Mat Pro",
+    title: "Pro",
     description: "Nuestra estrella preferida por experimentados.",
     price: 40000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138625/2132md-pro-71-111011010-mats-black_041-2f0c2e0518e2b820be16312784639854-640-0_cvjhq5.jpg",
@@ -37,7 +35,7 @@ export const products = [
   },
   {
     id: 4,
-    title: "Mat Travel",
+    title: "Travel Pro",
     description: "El mundo es tu shala. Practica donde estés!",
     price: 20000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138602/111011460-Mats-PRO71-Elderberry-04_adfxhs.jpg",
@@ -49,7 +47,7 @@ export const products = [
   },
   {
     id: 5,
-    title: "Mat Travel Lite",
+    title: "Travel Lite",
     description: "Viajar ligero, practica segura.",
     price: 30000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138612/811ym9UqPOL._AC_UF1000_1000_QL80__vlwc7s.jpg",
@@ -61,7 +59,7 @@ export const products = [
   },
   {
     id: 6,
-    title: "Mat Bicolor",
+    title: "Bitone",
     description: "Única combinación de color vivos en excelente mat.",
     price: 60000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1711138625/2132md-pro-71-111011010-mats-black_041-2f0c2e0518e2b820be16312784639854-640-0_cvjhq5.jpg",
@@ -73,7 +71,19 @@ export const products = [
   },
   {
     id: 7,
-    title: "Yoga Brick - pvc ",
+    title: "Square mat",
+    description: "Mat cuadrado de 78x78cm. Encastrable.",
+    price: 80000,
+    image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713732561/63807593_f9zpsx.avif",
+    stock: 47,
+    type: ["mats", "sale"],
+    color: ["black", "blue", "grey"],
+    size: "215cm",
+
+  },
+  {
+    id: 8,
+    title: "Yoga Blocks",
     description: "Taco de goma eva 20x10x5cm",
     price: 10000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668148/images_rwnqxy.jpg",
@@ -84,8 +94,8 @@ export const products = [
 
   },
   {
-    id: 8,
-    title: "Towel Yogi Agni",
+    id: 9,
+    title: "Yoga Mat Towel",
     description: "Toalla de auto secando con grip",
     price: 800000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668158/images_gompub.jpg",
@@ -95,7 +105,7 @@ export const products = [
     size: ["180cm", "215cm"],
   },
   {
-    id: 9,
+    id: 10,
     title: "Yoga bag",
     description: "Bolso para llevar tu mat y pertenecias",
     price: 800000,
@@ -107,7 +117,7 @@ export const products = [
 
   },
   {
-    id: 10,
+    id: 11,
     title: "Post-practice shirt",
     description: "Remera oversize post-práctica",
     price: 800000,
@@ -119,7 +129,7 @@ export const products = [
 
   },
   {
-    id: 11,
+    id: 12,
     title: "Cozy Yogi Short",
     description: "Pantalón para una practica cómoda",
     price: 800000,

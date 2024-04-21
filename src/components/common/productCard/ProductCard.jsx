@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Button,
   Card,
@@ -7,7 +8,6 @@ import {
   CardMedia,
   Typography,
 } from "@mui/material";
-import { Link } from "react-router-dom";
 
 const ProductCard = ({
   title,
@@ -22,17 +22,16 @@ const ProductCard = ({
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState("");
 
-const handleIncrementQuantity = () => {
-  const newQuantity = quantity + 1;
-  if (newQuantity > stock) {
-    setQuantity(stock);
-    setError("No hay suficiente stock disponible");
-  } else {
-    setQuantity(newQuantity);
-    setError("");
-  }
-};
-
+  const handleIncrementQuantity = () => {
+    const newQuantity = quantity + 1;
+    if (newQuantity > stock) {
+      setQuantity(stock);
+      setError("No hay suficiente stock disponible");
+    } else {
+      setQuantity(newQuantity);
+      setError("");
+    }
+  };
 
   const handleDecrementQuantity = () => {
     if (quantity > 0) {
@@ -52,7 +51,6 @@ const handleIncrementQuantity = () => {
       setError("");
     }
   };
-  
 
   return (
     <Card sx={{ width: 345 }}>
@@ -83,7 +81,7 @@ const handleIncrementQuantity = () => {
           AGREGAR AL CARRITO
         </Button>
         {error && <Typography variant="body2" color="error">{error}</Typography>}
-        <Link to={`/itemDetail/${id}`}>
+        <Link to={`/product/${id}`}>
           <Button size="small">Ver detalles</Button>
         </Link>
       </CardActions>

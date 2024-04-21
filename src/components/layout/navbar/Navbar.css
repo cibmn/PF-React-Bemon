@@ -1,14 +1,21 @@
 .navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100px;
-  position: fixed;
+  z-index: 1000;
   top: 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ebe0d5;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
   padding: 10px 20px;
 }
+
+
+
 
 .navbarLinkTitle {
   margin: 10px;
