@@ -54,15 +54,24 @@ const ItemDetailContainer = () => {
         <p>¿Quieres agregar Limpiardor de Mat y paño? +$35.000</p>
       </div>
 
+      <div>
+      <h3>Cantidad</h3>
+        <p>- 0 +</p>
+      </div>
+
       <div className="add-to-cart">
         <button>AGREGAR A CARRITO</button>
       </div>
 
       <div className="shipping-info">
         <p>
-          Envío gratis a partir de $75.000 y devolución gratis dentro 30 días
-          máximo.
+          Envío gratis a partir de $70.000 y devolución gratis hasta tope 30 días.
         </p>
+      </div>
+
+
+      <div className="addons">
+        <p>¿Prefieres el Set completo? Llevate un Brick y Towel</p>
       </div>
 
       <div className="add-all-to-cart">
@@ -70,12 +79,12 @@ const ItemDetailContainer = () => {
       </div>
 
       <div className="additional-sections">
-        <h3>Generalidades:</h3>
-        <p>Texto de generalidades aquí...</p>
-        <h3>Especificaciones:</h3>
-        <p>Texto de especificaciones aquí...</p>
-        <h3>Usos & Cuidados:</h3>
-        <p>Texto de usos y cuidados aquí...</p>
+        <h3>Generalidades +</h3>
+        <p>Texto desplegable de generalidades</p>
+        <h3>Especificaciones+</h3>
+        <p>Texto desplegable de especificaciones</p>
+        <h3>Usos & Cuidados +</h3>
+        <p>Texto desplegable de usos y cuidados</p>
       </div>
     </div>
   );

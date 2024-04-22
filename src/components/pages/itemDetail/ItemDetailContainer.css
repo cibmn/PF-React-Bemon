@@ -18,6 +18,7 @@
     background-color: lightgreen;
     padding: 10px;
     margin-bottom: 10px;
+    margin-right: 1655px;
   }
   
   .item-detail-container .rating {
@@ -63,12 +64,22 @@
     margin-bottom: 10px;
   }
   
-  .item-detail-container .add-to-cart button,
-  .item-detail-container .add-all-to-cart button {
+  .item-detail-container .add-to-cart button {
     font-size: 18px;
     padding: 12px 24px; 
     margin-bottom: 20px;
     background-color: #ff6347; 
+    color: #fff; 
+    border: none;
+    cursor: pointer; /
+  }
+
+  .item-detail-container .add-all-to-cart button {
+    font-size: 14px;
+    padding: 12px 24px; 
+    margin-bottom: 20px;
+    background-color: #9c9999; 
+    border: 1px solid #f17660;
     color: #fff; 
     border: none;
     cursor: pointer; /
