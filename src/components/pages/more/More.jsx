@@ -1,7 +1,7 @@
 
 const More = () => {
   return (
-    <div style={{ marginTop: "15px" }}>
+    <div style={{ marginTop: "15px", marginLeft: "20px" }}>
       <h1>Más</h1>
       <p>Aquí cosas referidas a la tienda como:</p>
       <ul>

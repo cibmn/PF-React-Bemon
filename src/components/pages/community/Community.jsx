@@ -1,6 +1,6 @@
 const Community = () => {
   return (
-    <div style={{ marginTop: "15px" }}>
+    <div style={{ marginTop: "15px", marginLeft: "20px" }}>
       <h1>Comunidad</h1>
       <p>
         Aquí datos de la comunidad: blog con diferentes artículos y abajo un
