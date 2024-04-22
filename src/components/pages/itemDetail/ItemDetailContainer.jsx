@@ -11,7 +11,7 @@ const ItemDetailContainer = () => {
   }
 
   return (
-    <div className="item-detail-container" style={{ marginTop: "70px" }}>
+    <div className="item-detail-container" style={{ marginTop: "30px" }}>
       <div className="warranty">Garantía de por vida</div>
 
       <h2>{item.title}</h2>

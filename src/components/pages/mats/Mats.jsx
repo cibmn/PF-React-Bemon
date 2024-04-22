@@ -12,7 +12,7 @@ const Mats = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "120px" }}>
+    <div style={{ marginTop: "15px" }}>
       <h1>Mats</h1>
       <Grid container justifyContent="center" spacing={2}>
         {filteredProducts.map(product => (
@@ -36,6 +36,7 @@ const Mats = () => {
           </Grid>
         ))}
       </Grid>
+      <div style={{ marginBottom: '100px' }}></div> //solo para darle un espacio al final
     </div>
   );
 };

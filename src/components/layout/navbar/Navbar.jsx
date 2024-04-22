@@ -8,7 +8,7 @@ import Typography from "@mui/material/Typography";
 
 export const Navbar = ({ toggleCartVisibility }) => {
   const handleCartClick = () => {
-    console.log("Cart clicked"); // Verificar si se llama correctamente al hacer clic en el icono del carrito
+    console.log("Cart clicked"); // Verificar si se llama correctamente al hacer click en el icono del carrito
     toggleCartVisibility();
   };
 

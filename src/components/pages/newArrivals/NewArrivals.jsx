@@ -7,12 +7,12 @@ const NewArrivals = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    const filtered = products.filter(product => product.type.includes("new"));
+    const filtered = products.filter(product => product.type.includes("new arrivals"));
     setFilteredProducts(filtered);
   }, []);
 
   return (
-    <div style={{ marginTop: "120px" }}>
+    <div style={{ marginTop: "15px" }}>
       <h1>New Arrivals</h1>
       <Grid container justifyContent="center" spacing={2}>
         {filteredProducts.map(product => (
@@ -31,11 +31,12 @@ const NewArrivals = () => {
               img={product.image}
               id={product.id}
               stock={product.stock}
-              addToCart={() => {}} // Implementar más adelante
+              addToCart={() => {}} // Para implementar más adelante
             />
           </Grid>
         ))}
       </Grid>
+      <div style={{ marginBottom: '100px' }}></div>
     </div>
   );
 };

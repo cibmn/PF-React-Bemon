@@ -52,9 +52,9 @@ const ProductCard = ({
     }
   };
 
-  return (
-    <Card sx={{ width: 345 }}>
-      <CardMedia sx={{ height: 140 }} image={img} title={title} />
+  return ( 
+    <Card sx={{ width: 340, marginTop: "50px" }}>
+      <CardMedia sx={{ height: 300 }} image={img} title={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {title}

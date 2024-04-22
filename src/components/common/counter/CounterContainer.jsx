@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { products } from "../../../ProductsMock";
 
 const ItemListContainer = () => {
-  const saludo = "Estás buscando el mat ideal? Prueba nuestra encuesta y encuéntralo!";
   const [filteredProducts, setFilteredProducts] = useState([]);
 
   useEffect(() => {
@@ -14,7 +13,7 @@ const ItemListContainer = () => {
   }, []);
 
   const handleAddToCart = (productId, quantity) => {
-    // Aquí implementa la lógica para agregar el producto al carrito
+    // lógica para agregar el producto al carrito
     console.log(`Agregando ${quantity} unidades del producto con ID ${productId} al carrito.`);
   };
 
@@ -38,8 +37,8 @@ const ItemListContainer = () => {
               price={product.price}
               img={product.image}
               id={product.id}
-              stock={product.stock} // Pasamos el stock como prop al ProductCard
-              addToCart={handleAddToCart} // Pasamos la función addToCart como prop
+              stock={product.stock} 
+              addToCart={handleAddToCart} 
             />
           </Grid>
         ))}

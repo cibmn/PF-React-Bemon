@@ -12,7 +12,7 @@ const PropsAccessories = () => {
   }, []);
 
   return (
-    <div style={{ marginTop: "120px" }}>
+    <div style={{ marginTop: "15px" }}>
       <h1>Props & Accessories</h1>
       <Grid container justifyContent="center" spacing={2}>
         {filteredProducts.map(product => (
@@ -36,6 +36,7 @@ const PropsAccessories = () => {
           </Grid>
         ))}
       </Grid>
+      <div style={{ marginBottom: '100px' }}></div>
     </div>
   );
 };

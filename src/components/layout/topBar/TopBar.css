@@ -1,0 +1,26 @@
+#top-bar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #756f6f33;
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+#top-bar-text {
+  margin-right: auto;
+}
+
+#top-bar-icons {
+  display: flex;
+}
+
+#top-bar-icon {
+  margin-left: 10px;
+}

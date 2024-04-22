@@ -1,10 +1,9 @@
-// CartContainer.jsx
 import React, { useState } from "react";
 import Cart from "./Cart";
 
 const CartContainer = () => {
   const [productosAgregados, setProductosAgregados] = useState([]);
-  const cuponDescuento = "GOKULAM108"; // cupón de descuento
+  const cuponDescuento = "GOKULAM108"; // cupón de descuento para más adelante
 
   // Función para agregar productos al carrito
   const agregarProducto = (producto) => {
