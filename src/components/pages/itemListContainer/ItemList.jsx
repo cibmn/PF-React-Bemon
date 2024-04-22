@@ -1,4 +1,3 @@
-import React from "react";
 import { Grid } from "@mui/material";
 import ProductCard from "../../common/productCard/ProductCard";
 
@@ -9,7 +8,7 @@ const ItemList = ({ items, error }) => {
         container
         spacing={2}
         justifyContent="center"
-        style={{ marginTop: "0" }} // Aplicamos estilo directamente al Grid
+        style={{ marginTop: "0" }}
       >
         {items.map(({ id, title, description, price, image }) => (
           <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
@@ -19,7 +18,7 @@ const ItemList = ({ items, error }) => {
               price={price}
               img={image}
               id={id}
-              style={{ marginTop: "0" }} // Aplicamos estilo directamente a la ProductCard
+              style={{ marginTop: "0" }} 
             />
           </Grid>
         ))}

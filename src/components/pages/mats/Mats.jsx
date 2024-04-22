@@ -31,12 +31,12 @@ const Mats = () => {
               img={product.image}
               id={product.id}
               stock={product.stock}
-              addToCart={() => {}} // Para implementar más adelante
+              addToCart={() => {}} // Implementar más adelante
             />
           </Grid>
         ))}
       </Grid>
-      <div style={{ marginBottom: '100px' }}></div> //solo para darle un espacio al final
+      <div style={{ marginBottom: '100px' }}></div> 
     </div>
   );
 };

@@ -9,7 +9,7 @@ const NewArrivals = () => {
   useEffect(() => {
     const filtered = products.filter(product => product.type.includes("new"));
     setFilteredProducts(filtered);
-  }, []);
+  }, [])
 
   return (
     <div style={{ marginTop: "15px", marginLeft: "20px" }}>
@@ -36,7 +36,7 @@ const NewArrivals = () => {
           </Grid>
         ))}
       </Grid>
-      <div style={{ marginBottom: '100px' }}></div> //solo para darle un espacio al final
+      <div style={{ marginBottom: '100px' }}></div> 
     </div>
   );
 };

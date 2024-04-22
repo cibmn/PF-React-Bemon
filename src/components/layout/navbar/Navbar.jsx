@@ -27,22 +27,22 @@ export const Navbar = ({ toggleCartVisibility }) => {
       <div className="centerSection">
         <ul>
           <li className="navItem">
-            <Link to="/mats" className="navbarLink">
+            <Link to="/type/mats" className="navbarLink">
               Mats
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/newArrivals" className="navbarLink redLink">
+            <Link to="/type/newArrivals" className="navbarLink redLink">
               New Arrivals
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/PropsAccessories" className="navbarLink">
+            <Link to="/type/PropsAccessories" className="navbarLink">
               Props & Accessories
             </Link>
           </li>
           <li className="navItem">
-            <Link to="/Sale" className="navbarLink">
+            <Link to="/type/Sale" className="navbarLink">
               Sale
             </Link>
           </li>

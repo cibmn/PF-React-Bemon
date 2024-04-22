@@ -72,7 +72,7 @@ export const products = [
   {
     id: 7,
     title: "Square mat",
-    description: "Mat cuadrado de 78x78cm. Encastrable.",
+    description: "Mat cuadrado de 78x78cm.",
     price: 80000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713732561/63807593_f9zpsx.avif",
     stock: 47,
@@ -111,7 +111,7 @@ export const products = [
     price: 800000,
     image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668162/yoga-mat-bags-600-aruna_wdcnpp.png",
     stock: 47,
-    type: "props",
+    type: ["props", "sale"],
     color: ["dark blue", "grey"],
     size: "universal",
 
@@ -141,5 +141,10 @@ export const products = [
 
   }
 ];
+
+
+console.log("Tipos de productos:");
+products.forEach(product => console.log(product.type));
+
 
 export default products;

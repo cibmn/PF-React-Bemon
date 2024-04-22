@@ -2,20 +2,19 @@ import React, { useEffect, useState } from "react";
 import ProductCard from "../../common/productCard/ProductCard";
 import { Grid } from "@mui/material/";
 import { useParams } from "react-router-dom";
-import TopBar from "../../layout/topBar/TopBar";
 import { products } from "../../../ProductsMock";
 import "./ItemListContainer.css";
 
 const ItemListContainer = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
-  const { category } = useParams();
+  const { type } = useParams();
 
   useEffect(() => {
-    const filtered = category
-      ? products.filter((product) => product.type === category)
+    const filtered = type
+      ? products.filter((product) => product.type.includes(type))
       : products;
     setFilteredProducts(filtered);
-  }, [category]);
+  }, [type]);
 
   return (
     <div>

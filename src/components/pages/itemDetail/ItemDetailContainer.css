@@ -1,114 +1,121 @@
 .item-detail-container {
-    margin-top: 120px;
-    margin: 20px;
-    padding: 20px;
-  }
-  
-  .item-detail-container h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container .warranty {
-    background-color: lightgreen;
-    padding: 10px;
-    margin-bottom: 10px;
-    margin-right: 1655px;
-  }
-  
-  .item-detail-container .rating {
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container .rating span {
-    font-size: 20px;
-  }
-  
-  .item-detail-container .details {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .details h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container .colors,
-  .item-detail-container .sizes {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .colors ul,
-  .item-detail-container .sizes ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .item-detail-container .colors li,
-  .item-detail-container .sizes li {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .item-detail-container .addons {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .addons p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container .add-to-cart button {
-    font-size: 18px;
-    padding: 12px 24px; 
-    margin-bottom: 20px;
-    background-color: #ff6347; 
-    color: #fff; 
-    border: none;
-    cursor: pointer; /
-  }
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  margin-top: 15px;
+  margin-left: 20px;
+  margin-right: 800px;
+}
 
-  .item-detail-container .add-all-to-cart button {
-    font-size: 14px;
-    padding: 12px 24px; 
-    margin-bottom: 20px;
-    background-color: #9c9999; 
-    border: 1px solid #f17660;
-    color: #fff; 
-    border: none;
-    cursor: pointer; /
-  }
+.item-detail-container h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
-  .item-detail-container .add-to-cart button:hover,
+.item-detail-container p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.item-detail-container .warranty {
+  background-color: lightgreen;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-right: 491px;
+  border-radius: 5px;
+
+}
+
+.item-detail-container .rating {
+  margin-bottom: 10px;
+}
+
+.item-detail-container .rating span {
+  font-size: 20px;
+}
+
+.item-detail-container .details {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .details h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.item-detail-container .colors,
+.item-detail-container .sizes {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .colors ul,
+.item-detail-container .sizes ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item-detail-container .colors li,
+.item-detail-container .sizes li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.item-detail-container .addons {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .addons p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.item-detail-container .add-to-cart button {
+  font-size: 18px;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+  background-color: #ff6347;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.item-detail-container .add-all-to-cart button {
+  font-size: 14px;
+  padding: 12px 24px;
+  margin-bottom: 20px;
+  background-color: #9c9999;
+  border: 1px solid #f17660;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.item-detail-container .add-to-cart button:hover,
 .item-detail-container .add-all-to-cart button:hover {
   background-color: #ff4c2c;
 }
-  
-  .item-detail-container .shipping-info {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .shipping-info p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
-  .item-detail-container .add-all-to-cart {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .additional-sections {
-    margin-bottom: 20px;
-  }
-  
-  .item-detail-container .additional-sections h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-  
+
+.item-detail-container .shipping-info {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .shipping-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.item-detail-container .add-all-to-cart {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .additional-sections {
+  margin-bottom: 20px;
+}
+
+.item-detail-container .additional-sections h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}

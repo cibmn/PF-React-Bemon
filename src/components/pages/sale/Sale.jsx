@@ -36,7 +36,7 @@ const Sale = () => {
           </Grid>
         ))}
       </Grid>
-      <div style={{ marginBottom: '100px' }}></div>
+      <div style={{ marginBottom: '100px' }}></div> 
     </div>
   );
 };

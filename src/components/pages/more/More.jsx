@@ -1,11 +1,13 @@
 
+import './More.css'; 
+
 const More = () => {
   return (
-    <div style={{ marginTop: "15px", marginLeft: "20px" }}>
+    <div className="more-container">
       <h1>Más</h1>
       <p>Aquí cosas referidas a la tienda como:</p>
       <ul>
-        <li>Guias de dimenciones y talles</li>
+        <li>Guias de dimensiones y talles</li>
         <li>Envíos</li>
         <li>Política de devoluciones</li>
         <li>Garantía del producto</li>

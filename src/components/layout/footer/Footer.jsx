@@ -1,9 +1,30 @@
+import React, { useEffect, useState } from 'react';
 import { Instagram, Facebook, LinkedIn, WhatsApp, Link } from "@mui/icons-material";
 import "./Footer.css";
 
 export const Footer = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY || window.pageYOffset || document.documentElement.scrollTop;
+
+      if (windowHeight + scrollTop >= documentHeight) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <footer className="footer">
+    <footer className={`footer ${isVisible ? 'visible' : ''}`}>
       <div className="socialIcons">
         <a href="https://www.instagram.com/">
           <Instagram />
