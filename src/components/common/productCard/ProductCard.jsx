@@ -17,7 +17,6 @@ const ProductCard = ({
   id,
   details,
   stock,
-  addToCart,
 }) => {
   const [quantity, setQuantity] = useState(0);
   const [error, setError] = useState("");
@@ -25,7 +24,6 @@ const ProductCard = ({
   const handleIncrementQuantity = () => {
     const newQuantity = quantity + 1;
     if (newQuantity > stock) {
-      setQuantity(stock);
       setError("No hay suficiente stock disponible");
     } else {
       setQuantity(newQuantity);
@@ -46,14 +44,15 @@ const ProductCard = ({
     } else if (quantity > stock) {
       setError("No hay suficiente stock disponible");
     } else {
-      addToCart({ id, title, price, quantity });
+      addToCart({ id, title, price, quantity }); // lo que va a carrito
       setQuantity(0);
       setError("");
     }
   };
 
-  return ( 
-    <Card sx={{ width: 340, marginTop: "50px" }}>
+  return (
+    <div style={{ display: 'flex', justifyContent: 'center' }}>
+    <Card sx={{ width: 360 }}>
       <CardMedia sx={{ height: 300 }} image={img} title={title} />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -66,26 +65,43 @@ const ProductCard = ({
           $ {price} .-
         </Typography>
         <Typography variant="body2" color="text.secondary">
-          Stock disponible: {stock}
+          Disponibles: {stock}
         </Typography>
       </CardContent>
-      <CardActions>
-        <Button size="small" onClick={handleDecrementQuantity}>
+      <CardActions sx={{ justifyContent: "flex-start" }}>
+        <Button
+          size="small"
+          sx={{ marginRight: "4px", minWidth: "auto" }}
+          onClick={handleDecrementQuantity}
+        >
           -
         </Button>
         <Typography variant="body2">{quantity}</Typography>
-        <Button size="small" onClick={handleIncrementQuantity}>
+        <Button
+          size="small"
+          sx={{ marginLeft: "4px", minWidth: "auto" }}
+          onClick={handleIncrementQuantity}
+        >
           +
         </Button>
-        <Button size="small" onClick={handleAddToCart} disabled={quantity <= 0}>
+        <Button
+          size="small"
+          onClick={handleAddToCart}
+          disabled={quantity <= 0 || quantity > stock}
+        >
           AGREGAR AL CARRITO
         </Button>
-        {error && <Typography variant="body2" color="error">{error}</Typography>}
-        <Link to={`/product/${id}`}>
-          <Button size="small">Ver detalles</Button>
+        {error && (
+          <Typography variant="body2" color="error">
+            {error}
+          </Typography>
+        )}
+        <Link to={`/itemDetail/${id}`}>
+          <Button size="small">Ver detalle</Button>
         </Link>
       </CardActions>
     </Card>
+  </div>
   );
 };
 

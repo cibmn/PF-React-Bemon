@@ -3,14 +3,9 @@ import ProductCard from "../../common/productCard/ProductCard";
 
 const ItemList = ({ items, error }) => {
   return (
-    <div style={{ paddingTop: "15px" }}>
-      <Grid
-        container
-        spacing={2}
-        justifyContent="center"
-        style={{ marginTop: "0" }}
-      >
-        {items.map(({ id, title, description, price, image }) => (
+    <div style={{ width: "100%", maxWidth: "1200px", margin: "0 auto", paddingTop: "20px", paddingLeft: "20px", paddingRight: "20px" }}>
+      <Grid container spacing={2} justifyContent="center">
+        {items.map(({ id, title, description, price, image, stock }) => (
           <Grid item key={id} xs={12} sm={6} md={4} lg={3}>
             <ProductCard
               title={title}
@@ -18,7 +13,7 @@ const ItemList = ({ items, error }) => {
               price={price}
               img={image}
               id={id}
-              style={{ marginTop: "0" }} 
+              stock={stock} 
             />
           </Grid>
         ))}
@@ -28,6 +23,7 @@ const ItemList = ({ items, error }) => {
           </Grid>
         )}
       </Grid>
+      <div style={{ marginBottom: '100px' }}></div> 
     </div>
   );
 };

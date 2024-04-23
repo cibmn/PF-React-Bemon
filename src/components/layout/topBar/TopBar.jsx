@@ -27,7 +27,7 @@ const TopBar = () => {
     <div
       className="top-bar-wrapper"
       style={{
-        marginTop: "100px",
+        marginTop: "0px",
         width: "100%",
         display: "flex",
         justifyContent: "space-between",

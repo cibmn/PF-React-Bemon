@@ -1,71 +1,77 @@
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100px;
+.containerNavbar {
+  width: 100%; 
+  height: 15vh;
+  display: flex;
   z-index: 1000;
   top: 0;
-  display: flex;
   justify-content: space-between;
-  align-items: center;
   background-color: #ebe0d5;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Agrega una sombra suave */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  align-items: center;
   padding: 10px 20px;
+  margin: 0 auto;
 }
 
+  
+  .logo {
+    width: 80px;
+    height: auto;
+  }
+
+  .navbarLinkTitle {
+    margin: 10px;
+    color: #5c5454;
+    text-decoration: none;
+  }
+
+  .navbarLink {
+    margin: 10px;
+    color: #5c5454;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .navbarLink:hover {
+    color: rgb(177, 177, 180);
+  }
+  
+  .navbarLink {
+    margin: 10px;
+    color: #5c5454;
+    font-size: 15px;
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+  
+  .redLink {
+    text-shadow: 0 0 3px rgb(224, 90, 90);
+  }
+  
+
+  .navbarIcon {
+    margin-right: 20px;
+    font-size: 1.4rem;
+  }
+
+  .leftSection {
+    display: flex;
+    align-items: center;
+  }
+
+  .categories {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    list-style-type: none;
+  }
+
+
+  .rightSection {
+    display: flex;
+    align-items: center;
+  }
 
 
 
-.navbarLinkTitle {
-  margin: 10px;
-  color: #5c5454;
-  text-decoration: none;
-}
-
-.navbarLink {
-  margin: 10px;
-  color: #5c5454;
-  font-size: 15px;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.navbarLink:hover {
-  color: rgb(177, 177, 180);
-}
-
-.leftSection {
-  display: flex;
-  align-items: center;
-}
-
-.centerSection ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-}
-
-.centerSection ul li {
-  margin-right: 20px;
-}
-
-.rightSection {
-  display: flex;
-  align-items: center;
-}
-
-.navbarIcon {
-  margin-right: 20px;
-  font-size: 1.4rem;
-}
-
-.logo {
-  width: 80px;
-  height: auto;
-}
-
-.redLink {
-  text-shadow: 0 0 3px rgb(224, 90, 90);
-}

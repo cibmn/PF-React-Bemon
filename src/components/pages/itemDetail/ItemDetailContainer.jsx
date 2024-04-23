@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { products } from "../../../ProductsMock";
+import { products } from "../../../productsMock";
 import "./ItemDetailContainer.css";
 
 const ItemDetailContainer = () => {

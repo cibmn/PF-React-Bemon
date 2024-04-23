@@ -1,42 +1,34 @@
-import React, { useEffect, useState } from "react";
-import ProductCard from "../../common/productCard/ProductCard";
-import { Grid } from "@mui/material/";
+import { useState, useEffect } from "react";
+import { products } from "../../../productsMock";
 import { useParams } from "react-router-dom";
-import { products } from "../../../ProductsMock";
-import "./ItemListContainer.css";
+import ItemList from "./ItemList";
 
 const ItemListContainer = () => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const { type } = useParams();
+  const [items, setItems] = useState([]);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const filtered = type
-      ? products.filter((product) => product.type.includes(type))
-      : products;
-    setFilteredProducts(filtered);
+    let filteredProducts = [];
+
+    if (type) {
+      filteredProducts = products.filter((product) => {
+        if (Array.isArray(product.type)) {
+          return product.type.includes(type);
+        } else {
+          return product.type === type;
+        }
+      });
+    } else {
+      filteredProducts = products;
+    }
+
+    console.log(filteredProducts);
+
+    setItems(filteredProducts);
   }, [type]);
 
-  return (
-    <div>
-      <Grid container justifyContent="center" spacing={2}>
-        {filteredProducts.map((product) => (
-          <Grid key={product.id} item xs={12} sm={6} md={4} lg={3}>
-            <ProductCard
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              img={product.image}
-              id={product.id}
-              stock={product.stock}
-              addToCart={() => {}}
-            />
-          </Grid>
-        ))}
-        <Grid item xs={12} style={{ height: "100px" }}></Grid>
-      </Grid>
-      <div className="space-below-list"></div>
-    </div>
-  );
+  return <ItemList items={items} error={error} />;
 };
 
 export default ItemListContainer;

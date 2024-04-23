@@ -17,3 +17,8 @@
 .footer .socialIcons a {
     margin: 0 0.4rem;
 }
+
+.socialIcons a {
+    color: #5c5454; 
+  }
+  

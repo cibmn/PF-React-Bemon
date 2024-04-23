@@ -1,50 +1,42 @@
-import React, { useState } from "react";
-import ProductCard from "../../common/productCard/ProductCard";
-import { Grid, Button } from "@mui/material/";
-import { Link } from "react-router-dom";
-import { products } from "../../../ProductsMock";
+import { useState, useEffect } from "react";
+import { products } from "../../productsMock";
+import CounterPresentacional from "./CounterPresentacional";
 
-const ItemListContainer = () => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+export const CounterContainer = ({ productId }) => {
+  const [stock, setStock] = useState(0);
+  const [nombre, setNombre] = useState("pepe");
 
   useEffect(() => {
-    console.log(products); // Verifica si los productos se cargan correctamente
-    setFilteredProducts(products);
-  }, []);
+    // Obtener el producto por ID
+    const product = products.find((product) => product.id === productId);
+    if (product) {
+      // Actualizar el estado del stock
+      setStock(product.stock);
+    }
+  }, [productId]);
 
-  const handleAddToCart = (productId, quantity) => {
-    // lógica para agregar el producto al carrito
-    console.log(`Agregando ${quantity} unidades del producto con ID ${productId} al carrito.`);
+  const restar = () => {
+    if (stock > 0) {
+      setStock(stock - 1);
+    } else {
+      alert("No hay más stock disponible");
+    }
+  };
+
+  const sumar = () => {
+    setStock(stock + 1);
+  };
+
+  const handleNameChange = () => {
+    setNombre("juan");
   };
 
   return (
-    <div>
-      <p style={{ marginTop: "120px", textAlign: "center", fontSize: "1.5rem" }}>{saludo}</p>
-      
-      <Grid container justifyContent="center" spacing={2}>
-        {filteredProducts.map(product => (
-          <Grid
-            key={product.id}
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
-          >
-            <ProductCard
-              title={product.title}
-              description={product.description}
-              price={product.price}
-              img={product.image}
-              id={product.id}
-              stock={product.stock} 
-              addToCart={handleAddToCart} 
-            />
-          </Grid>
-        ))}
-      </Grid>
-    </div>
+    <CounterPresentacional
+      restar={restar}
+      sumar={sumar}
+      contador={stock}
+      setNombre={handleNameChange}
+    />
   );
 };
-
-export default ItemListContainer;

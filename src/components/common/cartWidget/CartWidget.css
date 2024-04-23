@@ -1,23 +1,23 @@
 .cartLink {
-    text-decoration: none;
-  }
-  
-  .badgeContainer .MuiBadge-badge {
-    left: -4px;
-  }
+  text-decoration: none;
+}
 
-  .badgeContainer{
+.badgeContainer .MuiBadge-badge {
+  left: -4px;
+}
+
+.badgeContainer{
+transition: transform 0.3s ease;
+}
+.badgeContainer:hover {
+  transform: scale(1.2);
+}
+
+.iconContainer {
   transition: transform 0.3s ease;
 }
-  .badgeContainer:hover {
-    transform: scale(1.2);
-  }
-  
-  .iconContainer {
-    transition: transform 0.3s ease;
-  }
-  
-  .iconContainer:hover {
-    transform: scale(1.8);
-  }
+
+.iconContainer:hover {
+  transform: scale(1.8);
+}
 
