@@ -24,22 +24,22 @@ export const Navbar = () => {
           <div className="centerSection">
             <ul className="categories">
               <li className="navItem">
-                <Link to="/type/mats" className="navbarLink">
+                <Link to="/category/mats" className="navbarLink">
                   Mats
                 </Link>
               </li>
               <li className="navItem">
-                <Link to="/type/newArrivals" className="navbarLink redLink">
+                <Link to="/category/newArrivals" className="navbarLink redLink">
                   New Arrivals
                 </Link>
               </li>
               <li className="navItem">
-                <Link to="/type/propsAccessories" className="navbarLink">
+                <Link to="/category/propsAccessories" className="navbarLink">
                   Props & Accessories
                 </Link>
               </li>
               <li className="navItem">
-                <Link to="/type/sale" className="navbarLink">
+                <Link to="/category/sale" className="navbarLink">
                   Sale
                 </Link>
               </li>

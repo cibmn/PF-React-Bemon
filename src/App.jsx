@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<ItemListContainer />} />
-          <Route path="/type/:type" element={<ItemListContainer />} />
+          <Route path="/category/:type" element={<ItemListContainer />} />
           <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
           <Route path="/community" element={<Community />} />
