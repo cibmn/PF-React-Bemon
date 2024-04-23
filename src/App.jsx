@@ -20,10 +20,10 @@ function App() {
           <Route path="/type/:type" element={<ItemListContainer />} />
           <Route path="/product/:id" element={<ItemDetailContainer />} />
           <Route path="/cart" element={<CartContainer />} />
-          <Route path="type/mats" element={<Mats />} />
-          <Route path="type/newArrivals" element={<NewArrivals />} />
+          <Route path="/type/mats" element={<Mats />} />
+          <Route path="/type/newArrivals" element={<NewArrivals />} />
           <Route path="type/propsAccessories" element={<PropsAccessories />} />
-          <Route path="type/sale" element={<Sale />} />
+          <Route path="/type/sale" element={<Sale />} />
           <Route path="/community" element={<Community />} />
           <Route path="/more" element={<More />} />
           <Route path="*" element={<h1>Error! La página no existe</h1>} />
