@@ -6,6 +6,8 @@ import Community from "./components/pages/community/Community";
 import More from "./components/pages/more/More";
 import { Layout } from "./components/layout/Layout";
 import CartContextProvider from "./context/CartContext";
+import Checkout from "./components/pages/checkout/Checkout";
+
 
 
 function App() {
@@ -18,10 +20,10 @@ function App() {
             <Route path="/category/:type" element={<ItemListContainer />} />
             <Route path="/itemDetail/:id" element={<ItemDetailContainer />} />
             <Route path="/cart" element={<CartContainer />} />
+            <Route path="/checkout" element={<Checkout />} />
             <Route path="/community" element={<Community />} />
             <Route path="/more" element={<More />} />
             <Route path="*" element={<h1>Error! La página no existe</h1>} />
-            <Route path="*" element={<h1>Error! No existe esa página</h1>} />
           </Route>
         </Routes>
       </CartContextProvider>

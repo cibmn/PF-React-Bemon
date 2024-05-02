@@ -1,50 +1,67 @@
-import { Button } from "@mui/material";
+import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import "./Cart.css";
 
-const Cart = ({ cart, clearCart, deleteById, total, itemFromItemDetail }) => {
-  const clearCartAlert = () => {
-    const result = window.confirm("¿Estás seguro de que quieres limpiar el carrito?");
-    if (result) {
-      clearCart();
-      alert("Carrito limpio");
-    }
+
+const Cart = ({ cart, clearCart, deleteById }) => {
+  const [isClearModalOpen, setIsClearModalOpen] = useState(false);
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  };
+
+  const handleCheckout = () => {
+    // Lógica para iniciar el proceso de pago con el proveedor de pagos: PayPal o Mercado Pago
+  };
+
+  const handleOpenClearModal = () => {
+    setIsClearModalOpen(true);
+  };
+
+  const handleCloseClearModal = () => {
+    setIsClearModalOpen(false);
+  };
+
+  const handleClearCart = () => {
+    clearCart();
+    handleCloseClearModal();
   };
 
   return (
     <div className="cart">
-      <h1>¡Ya casi es tuyo!</h1>
+      <h1>¡Tu carrito de compras!</h1>
 
-      {cart.map((product) => (
-        <div key={product.id} style={{ border: "2px solid black" }}>
-          <h4>{product.title}</h4>
-          <h5>{product.price}</h5>
-          <h5>{product.quantity}</h5>
-          <button onClick={() => deleteById(product.id)}>Eliminar</button>
-        </div>
-      ))}
+      {/* Lista de productos en el carrito */}
 
-      {itemFromItemDetail && (
-        <div key={itemFromItemDetail.id} style={{ border: "2px solid black" }}>
-          <h4>{itemFromItemDetail.title}</h4>
-          <h5>{itemFromItemDetail.price}</h5>
-          <h5>{itemFromItemDetail.quantity}</h5>
-          <button onClick={() => deleteById(itemFromItemDetail.id)}>Eliminar</button>
-        </div>
-      )}
+      <h2>Total: {getTotalPrice()}</h2>
 
-      <h2>Total: {total}</h2>
-      <p>Tienes cupón de descuento? Agrégalo acá:</p>
-
-      <Button onClick={clearCartAlert} variant="outlined">
+      <Button onClick={handleOpenClearModal} variant="outlined">
         Limpiar carrito
       </Button>
 
-      {cart.length > 0 && (
-        <Link to="/checkout">
-          <Button variant="contained">Finalizar compra</Button>
-        </Link>
-      )}
+      <Link to="/checkout">
+        <Button onClick={handleCheckout} variant="contained">
+          Finalizar compra
+        </Button>
+      </Link>
+
+      <Dialog open={isClearModalOpen} onClose={handleCloseClearModal}>
+        <DialogTitle>Limpiar carrito</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            ¿Estás seguro de que deseas limpiar el carrito?
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseClearModal} color="primary">
+            Cancelar
+          </Button>
+          <Button onClick={handleClearCart} color="primary" autoFocus>
+            Limpiar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
