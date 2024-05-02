@@ -1,7 +1,9 @@
 import { useState, useEffect } from "react";
-import { products } from "../../../productsMock";
+import { products } from "../../../ProductsMock.js";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
+import { PiArrowSquareOutLight } from "react-icons/pi";
+
 
 const ItemListContainer = () => {
   const { type } = useParams();
@@ -32,3 +34,4 @@ const ItemListContainer = () => {
 };
 
 export default ItemListContainer;
+

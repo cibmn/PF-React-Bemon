@@ -1,13 +1,21 @@
+import "./Counter.css";
 
-const CounterPresentacional = ({ restar, sumar, stock, setNombre }) => {
+
+const CounterPresentacional = ({ restar, sumar, contador, onAdd, errorMessage }) => {
   return (
     <div>
-      <button onClick={restar}>Restar</button>
-      <h2>{stock}</h2>
-      <button onClick={sumar}>Sumar</button>
-      <button onClick={setNombre}>Cambiar nombre</button>
+      <button className="counter-btn" onClick={restar}>-</button>
+      <span>{contador}</span>
+      <button className="counter-btn" onClick={sumar}>+</button>
+      {errorMessage && <span style={{ marginLeft: "10px", color: "red" }}>{errorMessage}</span>}
     </div>
   );
 };
 
 export default CounterPresentacional;
+
+
+/* 
+      <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
+
+ */

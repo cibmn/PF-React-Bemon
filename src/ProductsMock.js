@@ -33,6 +33,7 @@ export const products = [
       size: ["180cm", "215cm"],
   
     },
+
     {
       id: 4,
       title: "Travel Pro",
@@ -42,7 +43,7 @@ export const products = [
       stock: 3,
       type: "mats",
       color: ["blue", "green"],
-      size: "160cm",
+      size: ["160cm"]
   
     },
     {
@@ -54,7 +55,7 @@ export const products = [
       stock: 20,
       type: ["mats", "sale"],
       color: "blue",
-      size: "160cm",
+      size: ["160cm"]
   
     },
     {
@@ -66,7 +67,7 @@ export const products = [
       stock: 45,
       type: ["mats", "sale"],
       color: ["black-white", "blue-green", "green-grey"],
-      size: ["180cm", "215cm"],
+      size: ["180cm"],
   
     },
     {
@@ -78,7 +79,7 @@ export const products = [
       stock: 47,
       type: ["mats", "sale"],
       color: ["black", "blue", "grey"],
-      size: "215cm",
+      size: ["78x78cm",  "250x250cm"]
   
     },
     {
@@ -102,7 +103,7 @@ export const products = [
       stock: 53,
       type: "propsAccessories",
       color: ["black-white", "blue-green", "green-grey"],
-      size: ["180cm", "215cm"],
+      size: ["universal"]
     },
     {
       id: 10,
@@ -113,8 +114,8 @@ export const products = [
       stock: 60,
       type: ["propsAccessories", "sale"],
       color: ["dark blue", "grey"],
-      size: "universal",
-  
+      size: ["universal"]
+      
     },
     {
       id: 11,
@@ -125,7 +126,7 @@ export const products = [
       stock: 12,
       type: "propsAccessories",
       color: ["black", "white", "blue", "red", "green", "grey", "orange"],
-      size: "único",
+      size: ["único"]
   
     },
     {
@@ -137,15 +138,13 @@ export const products = [
       stock: 6,
       type: "propsAccessories",
       color: ["black", "blue", "grey"],
-      size: [1, 2, 3],
+      size: ["1", "2", "3"],
   
     }
   ];
-  
   
   console.log("Tipos de productos:");
   products.forEach(product => console.log(product.type));
   
   
   export default products;
-  

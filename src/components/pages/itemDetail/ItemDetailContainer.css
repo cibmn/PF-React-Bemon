@@ -5,7 +5,7 @@
   background-color: #f9f9f9;
   margin-top: 15px;
   margin-left: 20px;
-  margin-right: 800px;
+  margin-right: 20px;
 }
 
 .item-detail-container h2 {
@@ -22,7 +22,7 @@
   background-color: lightgreen;
   padding: 10px;
   margin-bottom: 10px;
-  margin-right: 491px;
+  margin-right: 477px;
   border-radius: 5px;
 
 }
@@ -118,4 +118,34 @@
 .item-detail-container .additional-sections h3 {
   font-size: 20px;
   margin-bottom: 10px;
+}
+
+
+
+
+/* item detail  */
+
+.item-detail-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.image-container {
+  flex: 1;
+  width: 50%;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+
+.image-container img {
+  max-width: 600px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.details {
+  flex: 1;
+  margin-top: 20px;
+  margin-left: 100px;
+
 }

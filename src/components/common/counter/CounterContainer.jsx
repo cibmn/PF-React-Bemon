@@ -1,42 +1,35 @@
-import { useState, useEffect } from "react";
-import { products } from "../../productsMock";
+import { useState } from "react";
 import CounterPresentacional from "./CounterPresentacional";
 
-export const CounterContainer = ({ productId }) => {
-  const [stock, setStock] = useState(0);
-  const [nombre, setNombre] = useState("pepe");
-
-  useEffect(() => {
-    // Obtener el producto por ID
-    const product = products.find((product) => product.id === productId);
-    if (product) {
-      // Actualizar el estado del stock
-      setStock(product.stock);
-    }
-  }, [productId]);
-
-  const restar = () => {
-    if (stock > 0) {
-      setStock(stock - 1);
-    } else {
-      alert("No hay más stock disponible");
-    }
-  };
+export const CounterContainer = ({ stock, initial = 0, onAdd }) => {
+  const [contador, setContador] = useState(initial);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const sumar = () => {
-    setStock(stock + 1);
+    if (contador < stock) {
+      setContador(contador + 1);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Lo sentimos, no alcanzamos a cubrir esa cantidad.");
+    }
   };
 
-  const handleNameChange = () => {
-    setNombre("juan");
+  const restar = () => {
+    if (contador > 0) {
+      setContador(contador - 1);
+      setErrorMessage("");
+    } else {
+      setErrorMessage("Debes tener al menos 1 producto seleccionado");
+    }
   };
 
-  return (
-    <CounterPresentacional
-      restar={restar}
-      sumar={sumar}
-      contador={stock}
-      setNombre={handleNameChange}
-    />
-  );
+  let objectProps = {
+    restar,
+    sumar,
+    contador,
+    onAdd,
+    errorMessage,
+  };
+
+  return <CounterPresentacional {...objectProps} />;
 };
