@@ -1,3 +1,27 @@
+@media screen and (max-height: 650px) {
+  cart-drawer-items {
+      overflow: visible;
+  }
+}
+cart-drawer-items {
+  overflow: auto;
+  flex: 1;
+}
+*, ::after, ::before {
+  box-sizing: inherit;
+}
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+.drawer.active {
+  visibility: visible;
+}
+.drawer {
+  visibility: hidden;
+}
+
+
+
 .cart {
   padding: 20px;
   border: 1px solid #ccc;
@@ -7,29 +31,53 @@
   margin-left: 20px;
   margin-right: 800px;
 }
-  
-  .cart h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
+
+.cart h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.cart h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.cart ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cart li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.cart p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* New styles from previous CSS */
+@media screen and (max-height: 650px) {
+  cart-drawer-items {
+      overflow: visible;
   }
-  
-  .cart h2 {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-  
-  .cart ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  .cart li {
-    font-size: 16px;
-    margin-bottom: 5px;
-  }
-  
-  .cart p {
-    font-size: 16px;
-    margin-bottom: 10px;
-  }
-  
+}
+cart-drawer-items {
+  overflow: auto;
+  flex: 1;
+}
+
+
+.cart-item {
+  margin-bottom: 20px; 
+}
+
+.cart-item__quantity {
+  display: flex;
+  align-items: center;
+}
+
+.cart-item__quantity button {
+  font-size: 1.5rem; /* Tamaño deseado */
+}

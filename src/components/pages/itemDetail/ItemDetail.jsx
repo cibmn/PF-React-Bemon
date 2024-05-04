@@ -1,11 +1,16 @@
+import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { products } from "../../../ProductsMock.js";
 import "./ItemDetailContainer.css";
 import { CounterContainer } from "../../common/counter/CounterContainer";
+import { CartContext } from "../../../context/CartContext";
 
-const ItemDetail = ({ onAdd }) => {
+const ItemDetail = () => {
   const { id } = useParams();
+  const { addToCart } = useContext(CartContext);
+  const onAdd = addToCart;
+
   const foundItem = products.find((product) => product.id === parseInt(id));
 
   const [cantidadSeleccionada, setCantidadSeleccionada] = useState(1);
@@ -26,35 +31,53 @@ const ItemDetail = ({ onAdd }) => {
     const precioTotal = foundItem.price * cantidadSeleccionada;
     let total = precioTotal;
 
-    // Objeto del producto principal seleccionado
     const productoPrincipal = {
       id: foundItem.id,
       title: foundItem.title,
       price: foundItem.price,
       quantity: cantidadSeleccionada,
       color: colorSeleccionado,
-      size: tamañoSeleccionado
+      size: tamañoSeleccionado,
     };
 
-    // Objeto del limpiador si está seleccionado
     const limpiador = limpiadorSeleccionado
       ? {
           id: "limpiador",
           title: "Limpiador de Mat y paño",
           price: 35000,
-          quantity: 1
+          quantity: 1,
         }
       : null;
 
-    // Agregar los productos al carrito
     onAdd([productoPrincipal, limpiador].filter(Boolean), total);
   };
-
   const handleAddSetCompleto = () => {
-    setColorSeleccionado(foundItem.color[0]); // Seleccionar el primer color por defecto
-    setTamañoSeleccionado(foundItem.size[0]); // Seleccionar el primer tamaño por defecto
-    setLimpiadorSeleccionado(true); // Seleccionar el limpiador
-    handleAddToCart(); // Agregar al carrito
+    setColorSeleccionado(foundItem.color[0]);
+    setTamañoSeleccionado(foundItem.size[0]);
+    setLimpiadorSeleccionado(true);
+
+    // Agregar el producto principal
+    handleAddToCart();
+
+    // Agregar los bloques de yoga
+    const yogaBlocks = {
+      id: 8,
+      title: "Yoga Blocks",
+      price: 10000,
+      quantity: 1,
+    };
+    const precioYogaBlocks = yogaBlocks.price * yogaBlocks.quantity;
+    onAdd(yogaBlocks, precioYogaBlocks);
+
+    // Agregar la toalla de yoga
+    const yogaMatTowel = {
+      id: 9,
+      title: "Yoga Mat Towel",
+      price: 800000,
+      quantity: 1,
+    };
+    const precioYogaMatTowel = yogaMatTowel.price * yogaMatTowel.quantity;
+    onAdd(yogaMatTowel, precioYogaMatTowel);
   };
 
   return (
@@ -73,11 +96,16 @@ const ItemDetail = ({ onAdd }) => {
           <span> (639 votos)</span>
         </div>
         <div>
-          <h3>Tipo: {foundItem.type}</h3>
+          <h3>Tipo: {foundItem.type.join(" - ")}</h3>
           <p>{foundItem.description}</p>
         </div>
         <div className="colors" onClick={() => handleItemClick(foundItem.id)}>
-          <h3>Colores disponibles: {foundItem.color.join(" - ")}</h3>
+          <h3>
+            Colores disponibles:{" "}
+            {Array.isArray(foundItem.color)
+              ? foundItem.color.join(" - ")
+              : foundItem.color}
+          </h3>
         </div>
 
         <div className="sizes" onClick={() => handleItemClick(foundItem.id)}>

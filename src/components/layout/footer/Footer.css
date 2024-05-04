@@ -2,23 +2,54 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    height: 500px;
     width: 100%;
-    background-color:  #e7e0d5;
+    background-color: #e7e0d5;
     color: #5c5454;
     text-align: center;
     padding: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: auto;
+    gap: 10px; 
+    transition: transform 0.3s ease; /* Agregamos una transición suave */
+    transform: translateY(100%); /* Ocultamos el footer por defecto */
 }
 
-.footer .socialIcons {
-    margin-top: 0.3rem;
-    margin-bottom: 0.3rem;
+
+.footer.visible {
+    transform: translateY(0); 
 }
 
-.footer .socialIcons a {
-    margin: 0 0.4rem;
+.mainInfo {
+    margin: 20px;
+    position: relative; /* Para que los elementos internos se posicionen relativamente a este contenedor */
+    grid-column: 1; /* Ocupa la primera columna */
+    display: flex;
+    flex-direction: column; /* Los elementos se colocarán uno encima del otro */
+    justify-content: center; /* Centramos horizontalmente */
+    align-items: center; /* Centramos verticalmente */
 }
 
-.socialIcons a {
-    color: #5c5454; 
+.additionalInfo {
+    grid-column-start: 2; /* Comienza en la segunda columna */
+    grid-row-start: 1; /* Comienza en la primera fila */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+    height: 20px;
+    margin-left: 20px;
   }
   
+  
+
+.additionalInfo a {
+    color: #5c5454; 
+    text-decoration: none; 
+    font-size: 14px; 
+}
+
+.footer p {
+    margin: 0; 
+}
