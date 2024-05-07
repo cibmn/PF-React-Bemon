@@ -1,112 +1,83 @@
-import { useState, useContext } from "react";
-import { Button, TextField, Typography, Modal, Box } from "@mui/material";
-import { CartContext } from "../../../context/CartContext";
 
-const Checkout = () => {
-  const { cart, clearCart } = useContext(CartContext);
+import { Button, TextField } from "@mui/material";
+import { useContext, useState } from "react";
+import { CartContext } from "../../../context/CartContext";
+import { addDoc, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from "../../../context/firebaseConfig";
+
+export const Checkout = () => {
+  const { cart, getTotalPrice, clearCart } = useContext(CartContext);
+  console.log(cart);
+
+  const [orderId, setOrderId] = useState(null);
+
+  let total = getTotalPrice();
+
   const [info, setInfo] = useState({
-    nombre: "",
-    telefono: "",
+    name: "",
+    phone: "",
     email: "",
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [countdown, setCountdown] = useState(5);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
     setInfo({ ...info, [name]: value });
   };
 
-  const handleSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    try {
-      // Simulamos la actualización del stock aquí
-      cart.forEach((product) => {
-        console.log(`Actualizando stock para el producto ${product.id}`);
-        // Aquí iría la lógica para actualizar el stock en la base de datos o en alguna estructura de datos simulada
-      });
+    let obj = {
+      buyer: info,
+      items: cart,
+      total: total,
+    };
 
-      setIsModalOpen(true);
-      clearCart();
-    } catch (error) {
-      console.error("Error al actualizar el stock:", error);
-    }
-  };
+    let ordersCollection = collection(db, "orders");
+    addDoc(ordersCollection, obj)
+      .then((res) => setOrderId(res.id))
+      .catch((error) => console.log(error));
 
-  const handleCountdown = () => {
-    if (countdown === 0) {
-      setIsModalOpen(false);
-      window.location.href = "/";
-    } else {
-      setTimeout(() => {
-        setCountdown((prevCount) => prevCount - 1);
-      }, 1000);
-    }
+      
+    cart.forEach((product) => {
+      let refDoc = doc(db, "products", product.id);
+      updateDoc(refDoc, { stock: product.stock - product.quantity });
+    });
+
+    clearCart();
   };
 
   return (
-    <div style={{ padding: "100px", textAlign: "center" }}>
-      <Typography variant="h4" gutterBottom>
-        Compra exitosa!
-      </Typography>
-      <Typography>
-        Por favor, introduzca los siguientes datos para acceder al código de seguimiento:
-      </Typography>
-      <form onSubmit={handleSubmit} style={{ marginTop: "20px", display: "inline-block", maxWidth: "300px", margin: "auto" }}>
-        <div style={{ marginBottom: "10px" }}>
+    <div style={{ padding: "100px" }}>
+      {orderId ? (
+        <h1>su id es: {orderId} </h1>
+      ) : (
+        <form onSubmit={handleSubmit}>
           <TextField
             variant="outlined"
             type="text"
             label="Nombre"
             onChange={handleChange}
-            name="nombre"
-            fullWidth
+            name="name"
           />
-        </div>
-        <div style={{ marginBottom: "10px" }}>
           <TextField
             variant="outlined"
             type="text"
-            label="Teléfono"
+            label="Telefono"
             onChange={handleChange}
-            name="telefono"
-            fullWidth
+            name="phone"
           />
-        </div>
-        <div style={{ marginBottom: "20px" }}>
           <TextField
             variant="outlined"
-            type="email"
+            type="text"
             label="Email"
             onChange={handleChange}
             name="email"
-            fullWidth
           />
-        </div>
-        <Button variant="contained" type="submit">Enviar</Button>
-      </form>
-
-      <Modal open={isModalOpen} onClose={() => setIsModalOpen(false)}>
-        <Box
-          sx={{
-            position: 'absolute',
-            top: '50%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            bgcolor: 'background.paper',
-            boxShadow: 24,
-            p: 4,
-            textAlign: 'center',
-          }}
-        >
-          <Typography variant="h5" gutterBottom>Gracias por tu compra</Typography>
-          <Typography variant="body1">Serás redirigido al inicio en {countdown} segundos.</Typography>
-        </Box>
-      </Modal>
-      
-      {isModalOpen && handleCountdown()}
+          <Button variant="contained" type="submit">
+            enviar
+          </Button>
+        </form>
+      )}
     </div>
   );
 };
-
-export default Checkout;

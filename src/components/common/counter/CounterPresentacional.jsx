@@ -1,21 +1,21 @@
-import "./Counter.css";
+// CounterPresentacional.jsx
+import { Button } from "@mui/material";
 
-
-const CounterPresentacional = ({ restar, sumar, contador, onAdd, errorMessage }) => {
+const CounterPresentacional = ({ restar, sumar, contador, onAdd }) => {
   return (
-    <div>
-      <button className="counter-btn" onClick={restar}>-</button>
-      <span>{contador}</span>
-      <button className="counter-btn" onClick={sumar}>+</button>
-      {errorMessage && <span style={{ marginLeft: "10px", color: "red" }}>{errorMessage}</span>}
+    <div style={{ marginBottom: "20px", display: "flex", gap: "30px" }}>
+      <Button onClick={restar} variant="outlined">
+        restar
+      </Button>
+      <h2>{contador}</h2>
+      <Button onClick={sumar} variant="outlined">
+        sumar
+      </Button>
+      <Button onClick={() => onAdd(contador)} variant="contained">
+        Agregar al carrito
+      </Button>
     </div>
   );
 };
 
 export default CounterPresentacional;
-
-
-/* 
-      <button onClick={() => onAdd(contador)}>Agregar al carrito</button>
-
- */

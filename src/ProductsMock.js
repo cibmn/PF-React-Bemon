@@ -123,7 +123,7 @@ export const products = [
       description: "Remera oversize post-práctica",
       price: 800000,
       image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668426/asana-tee_clay_urban-goddess-torso_RAW_6-400x480_y8qnlm.jpg",
-      stock: 12,
+      stock: 120,
       type: "propsAccessories",
       color: ["black", "white", "blue", "red", "green", "grey", "orange"],
       size: ["único"]
@@ -132,14 +132,37 @@ export const products = [
     {
       id: 12,
       title: "Cozy Yogi Short",
-      description: "Pantalón para una practica cómoda",
+      description: "Pantalón para una practica cómoda. Única aroma: silve",
       price: 800000,
       image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1713668365/212236-800-800_jnotoa.webp",
-      stock: 6,
+      stock: 60,
       type: "propsAccessories",
       color: ["black", "blue", "grey"],
       size: ["1", "2", "3"],
   
+    },
+    {
+      id: 13,
+      title: "Limpiador de Mat y paño",
+      description: "Spray desinfectante de suave aroma para cuidado del mat",
+      price: 35000,
+      image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1714846211/yoga-mat-spray-6_dkolou.jpg", // Agrega una coma aquí
+      stock: 80,
+      type: "propsAccessories",
+      color: "Lemongrass",
+      size: ["4 oz (118ml)", "8 oz (273ml)", "33 oz (946ml)"],
+    },
+   
+    {
+      id: 14,
+      title: "Limpiador de Mat y paño",
+      description: "Spray desinfectante de suave aroma para cuidado del mat",
+      price: 35000,
+      image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1714846211/yoga-mat-spray-6_dkolou.jpg",
+      stock: 80,
+      type: "propsAccessories",
+      color: "Lavanda",
+      size: ["4 oz (118ml)", "8 oz (273ml)", "33 oz (946ml)"],
     }
   ];
   

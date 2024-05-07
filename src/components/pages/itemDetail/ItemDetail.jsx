@@ -1,122 +1,66 @@
-import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
-import { products } from "../../../ProductsMock.js";
-import "./ItemDetailContainer.css";
-import { CounterContainer } from "../../common/counter/CounterContainer";
+import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
+import CounterContainer from "../../common/counter/CounterContainer";
+import Button from "@mui/material/Button"; // Importamos el componente Button de Material-UI
+import "./ItemDetailContainer.css";
 
-const ItemDetail = () => {
-  const { id } = useParams();
+const ItemDetail = ({ item, initial }) => {
   const { addToCart } = useContext(CartContext);
-  const onAdd = addToCart;
 
-  const foundItem = products.find((product) => product.id === parseInt(id));
-
-  const [cantidadSeleccionada, setCantidadSeleccionada] = useState(1);
-  const [limpiadorSeleccionado, setLimpiadorSeleccionado] = useState(false);
-  const [colorSeleccionado, setColorSeleccionado] = useState("");
-  const [tamañoSeleccionado, setTamañoSeleccionado] = useState("");
-
-  if (!foundItem) {
-    return <div>Producto no encontrado</div>;
-  }
-
-  const handleAddToCart = () => {
-    if (cantidadSeleccionada < 1 || cantidadSeleccionada > foundItem.stock) {
-      alert("Debes seleccionar una cantidad válida.");
-      return;
-    }
-
-    const precioTotal = foundItem.price * cantidadSeleccionada;
-    let total = precioTotal;
-
-    const productoPrincipal = {
-      id: foundItem.id,
-      title: foundItem.title,
-      price: foundItem.price,
-      quantity: cantidadSeleccionada,
-      color: colorSeleccionado,
-      size: tamañoSeleccionado,
-    };
-
-    const limpiador = limpiadorSeleccionado
-      ? {
-          id: "limpiador",
-          title: "Limpiador de Mat y paño",
-          price: 35000,
-          quantity: 1,
-        }
-      : null;
-
-    onAdd([productoPrincipal, limpiador].filter(Boolean), total);
-  };
-  const handleAddSetCompleto = () => {
-    setColorSeleccionado(foundItem.color[0]);
-    setTamañoSeleccionado(foundItem.size[0]);
-    setLimpiadorSeleccionado(true);
-
-    // Agregar el producto principal
-    handleAddToCart();
-
-    // Agregar los bloques de yoga
-    const yogaBlocks = {
-      id: 8,
-      title: "Yoga Blocks",
-      price: 10000,
-      quantity: 1,
-    };
-    const precioYogaBlocks = yogaBlocks.price * yogaBlocks.quantity;
-    onAdd(yogaBlocks, precioYogaBlocks);
-
-    // Agregar la toalla de yoga
-    const yogaMatTowel = {
-      id: 9,
-      title: "Yoga Mat Towel",
-      price: 800000,
-      quantity: 1,
-    };
-    const precioYogaMatTowel = yogaMatTowel.price * yogaMatTowel.quantity;
-    onAdd(yogaMatTowel, precioYogaMatTowel);
+  const handleAddToCart = (quantity) => {
+    addToCart({ ...item, quantity });
   };
 
   return (
-    <div className="item-detail-container">
-      <div className="image-container">
-        <img src={foundItem.image} alt={foundItem.title} />
+    <div className="containerItemDetail">
+      <div className="leftColumn">
+        <div className="containerImage">
+          <img src={item.img} alt="" />
+        </div>
       </div>
-      <div className="details" style={{ paddingBottom: "60px" }}>
-        <div className="warranty">Garantía de por vida</div>
-        <h2>{foundItem.title}</h2>
-        <h4>Precio: ${foundItem.price}</h4>
-        <div className="rating">
-          <span role="img" aria-label="star">
-            ⭐⭐⭐⭐☆
-          </span>
-          <span> (639 votos)</span>
-        </div>
-        <div>
-          <h3>Tipo: {foundItem.type.join(" - ")}</h3>
-          <p>{foundItem.description}</p>
-        </div>
-        <div className="colors" onClick={() => handleItemClick(foundItem.id)}>
-          <h3>
-            Colores disponibles:{" "}
-            {Array.isArray(foundItem.color)
-              ? foundItem.color.join(" - ")
-              : foundItem.color}
-          </h3>
-        </div>
+      <div className="rightColumn">
+        <div className="details">
+          <div className="warranty">Garantía de por vida</div>
+          <div className="rating">
+            <span role="img" aria-label="star">
+              ⭐⭐⭐⭐☆
+            </span>
+            <span> (639 votos)</span>
+          </div>
+          <h1>{item.title}</h1>
+          <p>Descripción: {item.description}</p>
+          <h2>Precio: ${item.price}.-</h2>
+          <div className="colors">
+            <h3 className="inline-title">Color:</h3>
+            <ul className="inline-list">
+              {Array.isArray(item.color) ? (
+                item.color.map((color, index) => (
+                  <li key={index}>
+                    {index > 0 ? " - " : ""}
+                    {color}
+                  </li>
+                ))
+              ) : (
+                <li>{item.color}</li>
+              )}
+            </ul>
+          </div>
 
-        <div className="sizes" onClick={() => handleItemClick(foundItem.id)}>
-          <h3>Tamaños disponibles: {foundItem.size.join(" - ")}</h3>
-        </div>
-
-        <div>
-          <CounterContainer
-            stock={foundItem.stock}
-            onAdd={setCantidadSeleccionada}
-          />
+          <div className="sizes">
+            <h3 className="inline-title">Tamaño:</h3>
+            <ul className="inline-list">
+              {Array.isArray(item.size) ? (
+                item.size.map((size, index) => (
+                  <li key={index}>
+                    {index > 0 ? " - " : ""}
+                    {size}
+                  </li>
+                ))
+              ) : (
+                <li>{item.size}</li>
+              )}
+            </ul>
+          </div>
         </div>
         <div className="addons">
           <label htmlFor="limpiadorCheckbox">
@@ -129,18 +73,21 @@ const ItemDetail = () => {
             onChange={(e) => setLimpiadorSeleccionado(e.target.checked)}
           />
         </div>
-
         <div className="add-to-cart">
-          <button onClick={handleAddToCart}>Agregar al carrito</button>
+          <CounterContainer
+            stock={item.stock}
+            onAdd={handleAddToCart}
+            initial={initial}
+          />
+          <div className="shipping-info">
+            <p>
+              Envío gratis a partir de $70.000 y devolución gratis hasta tope 30
+              días.
+            </p>
+          </div>
         </div>
-        <div className="shipping-info">
-          <p>
-            Envío gratis a partir de $70.000 y devolución gratis hasta tope 30
-            días.
-          </p>
-        </div>
-        <div className="add-all-to-cart" onClick={handleAddSetCompleto}>
-          <button>Agregar set completo al carrito</button>
+        <div className="add-to-cart">
+          <Button variant="contained" size="small" onClick={handleAddToCart}>Agregar SET COMPLETO</Button> {/* Usamos el componente Button de Material-UI */}
         </div>
         <div className="additional-sections">
           <h3>Generalidades +</h3>

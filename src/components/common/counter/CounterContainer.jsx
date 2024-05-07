@@ -1,35 +1,38 @@
-import { useState } from "react";
+// CounterContainer.jsx
+import React, { useState } from "react";
 import CounterPresentacional from "./CounterPresentacional";
 
-export const CounterContainer = ({ stock, initial = 0, onAdd }) => {
+export const CounterContainer = ({ stock, initial = 1, onAdd }) => {
   const [contador, setContador] = useState(initial);
-  const [errorMessage, setErrorMessage] = useState("");
 
   const sumar = () => {
     if (contador < stock) {
       setContador(contador + 1);
-      setErrorMessage("");
     } else {
-      setErrorMessage("Lo sentimos, no alcanzamos a cubrir esa cantidad.");
+      alert("¡Máximo en stock!");
     }
   };
 
   const restar = () => {
-    if (contador > 0) {
+    if (contador > 1) {
       setContador(contador - 1);
-      setErrorMessage("");
     } else {
-      setErrorMessage("Debes tener al menos 1 producto seleccionado");
+      alert("No puedes tener menos de 1");
     }
   };
 
-  let objectProps = {
+  const handleAdd = () => {
+    onAdd(contador);
+  };
+
+  const objectProps = {
     restar,
     sumar,
     contador,
-    onAdd,
-    errorMessage,
+    onAdd: handleAdd,
   };
 
   return <CounterPresentacional {...objectProps} />;
 };
+
+export default CounterContainer;
