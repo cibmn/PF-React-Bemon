@@ -66,8 +66,8 @@ const Cart = () => {
               <p>
                 Comprando un <a href="/category/newArrivals">mat</a> te llevás
                 un 25% de descuento en cualquier{" "}
-                <a href="category/propsAccessories">bag</a> o{" "}
-                <a href="/category/propsAccessories">towel</a>!
+                <a href="/itemDetail/10">bag</a> o{" "}
+                <a href="/itemDetail/9">towel</a>!
               </p>
             </div>
           </div>

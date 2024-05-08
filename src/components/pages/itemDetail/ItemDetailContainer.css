@@ -7,6 +7,7 @@
   margin-top: 15px;
   margin-left: 20px;
   margin-right: 20px;
+  margin-bottom: 100px;
 }
 
 .leftColumn {
@@ -135,4 +136,20 @@
 }
 .additional-sections p {
   margin-bottom: 15px;
+}
+
+.containerImage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto; /* Ancho predeterminado para el contenedor */
+  height: auto; /* Altura predeterminada para el contenedor */
+}
+
+.containerImage img {
+  width: 100%; 
+  height: 100%; 
+  max-width: 90%; 
+  max-height: 800px; 
+  object-fit: contain; 
 }

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import React, { useState } from "react"; 
 import { CartContext } from "../../../context/CartContext";
 import CounterContainer from "../../common/counter/CounterContainer";
 import Button from "@mui/material/Button"; 
@@ -6,11 +7,18 @@ import "./ItemDetailContainer.css";
 
 const ItemDetail = ({ item, initial }) => {
   const { addToCart } = useContext(CartContext);
+  const [limpiadorSeleccionado, setLimpiadorSeleccionado] = useState(false);
+
 
   const handleAddToCart = (quantity) => {
-    addToCart({ ...item, quantity });
-  };
+    let precioTotal = item.price; 
 
+    if (limpiadorSeleccionado) {
+      precioTotal += 35000; 
+    }
+
+    addToCart({ ...item, quantity, precio: precioTotal });
+  };
   return (
     <div className="containerItemDetail">
       <div className="leftColumn">
