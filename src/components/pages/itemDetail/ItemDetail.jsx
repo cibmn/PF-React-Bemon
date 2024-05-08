@@ -14,8 +14,8 @@ const ItemDetail = ({ item, initial }) => {
   return (
     <div className="containerItemDetail">
       <div className="leftColumn">
-        <div className="containerImage">
-          <img src={item.img} alt="" />
+        <div className="containerImage" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <img src={item.image} alt="" />
         </div>
       </div>
       <div className="rightColumn">
