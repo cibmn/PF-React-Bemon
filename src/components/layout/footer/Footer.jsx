@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Instagram,
   Facebook,
@@ -10,27 +10,6 @@ import "./Footer.css";
 
 export const Footer = () => {
   const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      const scrollTop =
-        window.scrollY ||
-        window.pageYOffset ||
-        document.documentElement.scrollTop;
-
-      if (windowHeight + scrollTop >= documentHeight) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   const handleMouseEnter = () => {
     setIsVisible(true);
@@ -70,24 +49,86 @@ export const Footer = () => {
           </a>
         </div>
         <div className="mainInfo">
-          <p>Mail: correo@correo.com</p>
-          <input type="email" placeholder="Ingrese su correo electrónico" />
-          <button>Submit</button>
-          <label>
-            <input type="checkbox" />
-            Leí y acepto la política de privacidad y términos de servicio
-          </label>
-          <button>Registrarme para grupo de WhatsApp</button>
+          <div style={{ marginBottom: "10px" }}>
+            <input type="email" placeholder="Ingrese su correo electrónico" />
+            <button style={{ marginBottom: "10px", margin: "10px" }}>
+              Submit
+            </button>
+          </div>
+          <div>
+            <label style={{ marginBottom: "10px", margin: "10px" }}>
+              <input type="checkbox" />
+              Leí y acepto la política de privacidad y términos de servicio
+            </label>
+          </div>
+          <button
+            style={{
+              marginBottom: "10px",
+              margin: "20px",
+              backgroundColor: "green",
+              color: "white",
+            }}
+            size="large"
+          >
+            Registrarme para grupo de WhatsApp
+          </button>
         </div>
-        <p>&copy; 2024 Yoga Mat Tienda. Todos los derechos reservados.</p>
+        <div style={{ marginBottom: "10px", margin: "10px" }}>
+          <p>&copy; 2024 Yoga Mat Tienda. Todos los derechos reservados.</p>
+        </div>
       </div>
-      <div className="additionalInfo">
-        <a href="#">Customer Care</a>
-        <a href="#">Our Community</a>
-        <a href="#">Terms of Service</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-      <div>
+      <div
+        className="additionalInfo"
+        style={{
+          display: "grid",
+          gridTemplateColumns: "repeat(4, 1fr)",
+          gap: "20px",
+          justifyContent: "start", 
+        }}
+      >
+        <div>
+          <a href="#">Customer Care</a>
+          <div>
+            <a href="#">Mi Cuenta</a>
+            <a href="#">Preguntas Frecuentes</a>
+            <a href="#">Contáctenos</a>
+            <a href="#">Guía de Ajuste</a>
+            <a href="#">Quiz de Colchonetas de Yoga</a>
+            <a href="#">Envíos</a>
+            <a href="#">Política de Devolución</a>
+            <a href="#">Garantía del Producto</a>
+            <a href="#">Tarjetas de Regalo</a>
+            <a href="#">No vender mi información personal</a>
+            <a href="#">Información de Falsificación</a>
+          </div>
+        </div>
+        <div>
+          <a href="#">Our Community</a>
+          <div>
+            <a href="#">Community Guidlines</a>
+            <a href="#">Events</a>
+            <a href="#">Stories</a>
+            <a href="#">Ambassadors</a>
+          </div>
+        </div>
+        <div>
+          <a href="#">Terms of Service</a>
+          <div>
+            <a href="#">General Terms</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Payment Terms</a>
+            <a href="#">Subscription Terms</a>
+          </div>
+        </div>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <div>
+            <a href="#">Data Collection</a>
+            <a href="#">Data Usage</a>
+            <a href="#">Data Sharing</a>
+            <a href="#">Data Retention</a>
+          </div>
+        </div>
       </div>
     </footer>
   );

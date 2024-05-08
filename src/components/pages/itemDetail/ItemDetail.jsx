@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "../../../context/CartContext";
 import CounterContainer from "../../common/counter/CounterContainer";
-import Button from "@mui/material/Button"; // Importamos el componente Button de Material-UI
+import Button from "@mui/material/Button"; 
 import "./ItemDetailContainer.css";
 
 const ItemDetail = ({ item, initial }) => {

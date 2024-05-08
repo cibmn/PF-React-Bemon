@@ -1,19 +1,20 @@
-// CounterPresentacional.jsx
 import { Button } from "@mui/material";
 
 const CounterPresentacional = ({ restar, sumar, contador, onAdd }) => {
   return (
-    <div style={{ marginBottom: "20px", display: "flex", gap: "30px" }}>
-      <Button onClick={restar} variant="outlined">
-        restar
+    <div style={{ marginBottom: "15px", display: "flex", alignItems: "center", justifyContent: "flex-start" }}>
+      <Button onClick={restar} variant="outlined" size="small" style={{ minWidth: "30px", minHeight: "30px", fontSize: "14px" }}>
+        -
       </Button>
-      <h2>{contador}</h2>
-      <Button onClick={sumar} variant="outlined">
-        sumar
+      <h2 style={{ margin: "0 10px" }}>{contador}</h2>
+      <Button onClick={sumar} variant="outlined" size="small" style={{ minWidth: "30px", minHeight: "30px", fontSize: "14px" }}>
+        +
       </Button>
-      <Button onClick={() => onAdd(contador)} variant="contained">
-        Agregar al carrito
-      </Button>
+      <div style={{ marginLeft: "20px" }}>
+        <Button onClick={() => onAdd(contador)} variant="contained">
+          Agregar al carrito
+        </Button>
+      </div>
     </div>
   );
 };

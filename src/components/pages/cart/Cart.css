@@ -1,28 +1,9 @@
 @media screen and (max-height: 650px) {
   cart-drawer-items {
-      overflow: visible;
+      overflow: visible !important; 
   }
 }
-cart-drawer-items {
-  overflow: auto;
-  flex: 1;
-}
-*, ::after, ::before {
-  box-sizing: inherit;
-}
-*, *::before, *::after {
-  box-sizing: inherit;
-}
-.drawer.active {
-  visibility: visible;
-}
-.drawer {
-  visibility: hidden;
-}
-
-
-
-.cart {
+.cart-container {
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -30,54 +11,107 @@ cart-drawer-items {
   margin-top: 15px;
   margin-left: 20px;
   margin-right: 800px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 100px;
 }
 
-.cart h1 {
-  font-size: 24px;
-  margin-bottom: 10px;
+.ce-center {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.cart h2 {
+.cart-empty {
+  text-align: center;
+}
+
+.empty-content {
+  margin-top: 20px;
+}
+
+.empty-text {
   font-size: 18px;
-  margin-bottom: 10px;
 }
 
-.cart ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-.cart li {
+.login-title {
   font-size: 16px;
-  margin-bottom: 5px;
+  margin-top: 8px;
 }
 
-.cart p {
+.login-paragraph {
   font-size: 16px;
-  margin-bottom: 10px;
-}
-
-/* New styles from previous CSS */
-@media screen and (max-height: 650px) {
-  cart-drawer-items {
-      overflow: visible;
-  }
-}
-cart-drawer-items {
-  overflow: auto;
-  flex: 1;
 }
 
 
 .cart-item {
-  margin-bottom: 20px; 
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
 }
 
-.cart-item__quantity {
+
+.cart-container .MuiButton-root {
+  margin-top: auto;
+  
+}
+
+.cart-container .MuiButton-containedPrimary {
+  margin: 10px;
+}
+
+
+.MuiDialogTitle-root {
+  font-size: 10px;
+}
+
+.MuiDialogContentText-root {
+  font-size: 16px;
+}
+
+.cart-free-shipping {
+  background-color: lightgreen;
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.cart-message {
+  background-color: rgb(144, 235, 238);
+  margin-right: auto;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+
+
+.ce {
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
-.cart-item__quantity button {
-  font-size: 1.5rem; /* Tamaño deseado */
+.ec {
+  margin: 20px; 
+  padding: 20px; 
+  text-align: center;
+}
+
+.et, .lt {
+  margin-bottom: 10px; 
+}
+
+.et {
+  font-size: 24px;
+}
+
+.lt {
+  margin-top: 50px;
+}
+
+.l {
+  display: line; 
+  text-decoration: none;
+  color: blueviolet;
 }

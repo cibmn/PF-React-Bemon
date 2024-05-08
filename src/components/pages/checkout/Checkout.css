@@ -1,0 +1,27 @@
+.checkout-container {
+    padding: 50px;
+  }
+  
+  .checkout-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .checkout-input {
+    margin-bottom: 20px;
+    width: 300px;
+  }
+  
+  .checkout-button {
+    background-color: rgb(143, 172, 196);
+    color: white;
+    width: 150px;
+    margin-top: 20px; 
+  }
+
+  .checkout-info {
+    text-align: left;
+    margin-bottom: 30px;/
+  }
+  

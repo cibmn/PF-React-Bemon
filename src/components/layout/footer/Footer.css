@@ -1,53 +1,39 @@
 .footer {
     position: fixed;
     left: 0;
-    bottom: 0;
-    height: 500px;
+    bottom: -380px; 
+    height: 400px;
     width: 100%;
     background-color: #e7e0d5;
     color: #5c5454;
     text-align: center;
     padding: 10px 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    z-index: 1000;
+    grid-template-columns: repeat(2, 1fr); 
     grid-template-rows: auto;
     gap: 10px; 
-    transition: transform 0.3s ease; /* Agregamos una transición suave */
-    transform: translateY(100%); /* Ocultamos el footer por defecto */
+    transition: bottom 0.3s ease;
 }
-
 
 .footer.visible {
-    transform: translateY(0); 
+    bottom: 0; 
 }
 
-.mainInfo {
-    margin: 20px;
-    position: relative; /* Para que los elementos internos se posicionen relativamente a este contenedor */
-    grid-column: 1; /* Ocupa la primera columna */
-    display: flex;
-    flex-direction: column; /* Los elementos se colocarán uno encima del otro */
-    justify-content: center; /* Centramos horizontalmente */
-    align-items: center; /* Centramos verticalmente */
-}
-
+.mainInfo,
 .additionalInfo {
-    grid-column-start: 2; /* Comienza en la segunda columna */
-    grid-row-start: 1; /* Comienza en la primera fila */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin: 20px;
-    height: 20px;
-    margin-left: 20px;
-  }
-  
-  
+    position: relative;
+    margin-bottom: -10px; 
+}
+
 
 .additionalInfo a {
     color: #5c5454; 
     text-decoration: none; 
     font-size: 14px; 
+    display: row;
+    justify-content: space-between;
 }
 
 .footer p {
