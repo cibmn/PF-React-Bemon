@@ -63,7 +63,7 @@ const TopBar = () => {
           <span style={{ marginRight: "5px", marginTop: "3px", marginBottom: "3px" }}>Idioma</span>
           {icons[0]}
 
-          <span style={{ marginRight: "5px", marginTop: "3px", marginBottom: "3px" }}>Modos</span>
+          <span style={{ marginRight: "5px", marginTop: "3px", marginBottom: "3px" }}>Modo</span>
           <Switch checked={darkMode} onChange={handleDarkModeToggle} />
         </div>
       </div>

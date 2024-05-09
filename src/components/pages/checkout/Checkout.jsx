@@ -54,21 +54,23 @@ export const Checkout = () => {
         <div>
           <div style={{ marginBottom: "20px" }}>
             <h2>VER DETALLE DE MI COMPRA</h2>
-            <p>total final: $1234567</p>
+          <div className="cart-total" style={{ margin: "10px" }}>
+            <p>Total final: ${getTotalPrice()} + Envío: $5.000 nacional. (Consulte por envío internacional) </p>           
           </div>
-          <div style={{ marginBottom: "20px", fontSize: "18px" }}>
-            <h2 style={{ fontSize: "18px" }}>
+          <div className="follow" style={{ marginBottom: "40px" }}>
+            <h2 style={{ color:"slategray" }}>
               Código de seguimiento: {orderId}
             </h2>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          </div>
+          <div style={{ marginBottom: "30px" }}>
             <p>El pago fue confirmado, ya estamos preparando el pedido.</p>
             <p>
               <LocalShippingIcon /> Llega entre el 10 de junio y el 15 de junio.
               Destino: dirección 1234
             </p>
           </div>
-          <div style={{ marginBottom: "20px" }}>
+          <div style={{ marginBottom: "30px" }}>
             <h2>Pedido realizado</h2>
             <p>11 de junio de 2024</p>
             <h2>Pago confirmado</h2>
