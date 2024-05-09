@@ -27,7 +27,7 @@ const ItemListContainer = () => {
     setTimeout(() => {
       setItems(filteredProducts);
       setLoading(false);
-    }, 200);
+    }, 3000);
   }, [type]);
 
   return (

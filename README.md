@@ -1,11 +1,4 @@
-# React + Vite
+# Final para curso React@*CODERHOUSE* 2024
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-
-
+Desde principio del curso de React, se creó una tienda online al proyecto que estuve utilizando en cursos previos, el cual consta de un sitio web en JS y HTML para un estudio de yoga.
+Se plantea la venta de productos a través de filtrados por tipo, se especifican detalles y selección de cantidades. El carrito ofrece más herramientas de selección para asegurarse de una compra correcta y a posterior deja en claro que el check out se ha realizado correctamente, para continuar buscando y comprando.

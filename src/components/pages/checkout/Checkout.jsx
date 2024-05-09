@@ -1,4 +1,12 @@
-import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
+import {
+  Button,
+  TextField,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -16,7 +24,7 @@ export const Checkout = () => {
     lastName: "",
     dni: "",
     address: "",
-    location: ""
+    location: "",
   });
   const [open, setOpen] = useState(false);
 
@@ -30,7 +38,7 @@ export const Checkout = () => {
     let obj = {
       buyer: info,
       items: cart,
-      total: getTotalPrice()
+      total: getTotalPrice(),
     };
 
     let ordersCollection = collection(db, "orders");
@@ -58,35 +66,86 @@ export const Checkout = () => {
           <div style={{ marginBottom: "20px" }}>
             <h2>VER DETALLE DE MI COMPRA</h2>
             <div className="cart-total" style={{ margin: "10px" }}>
-              <p>Total final: ${getTotalPrice()} + Envío: $5.000 nacional. (Consulte por envío internacional) </p>
+              <p>
+                Total final: ${getTotalPrice()} + Envío: $5.000 nacional.
+                (Consulte por envío internacional){" "}
+              </p>
             </div>
             <div className="follow" style={{ marginBottom: "40px" }}>
-              <h2 style={{ color: "slategray" }}>Código de seguimiento: {orderId}</h2>
+              <h2 style={{ color: "slategray" }}>
+                Código de seguimiento: {orderId}
+              </h2>
             </div>
           </div>
           <div style={{ marginBottom: "30px" }}>
             <p>El pago fue confirmado, ya estamos preparando el pedido.</p>
             <p>
-              <LocalShippingIcon /> Llega entre el 10 de junio y el 15 de junio. Destino: dirección 1234
+              <LocalShippingIcon /> Llega entre el 10 de junio y el 15 de junio.
+              Destino: dirección 1234
             </p>
           </div>
-          <div style={{ marginBottom: "30px" }}>
-            <h2>Pedido realizado</h2>
-            <p>11 de junio de 2024</p>
-            <h2>Pago confirmado</h2>
-            <p>12 de junio de 2024</p>
-          </div>
+
+
+          <div class="status-chart">
+  <div class="status-items">
+    <div class="status-item active">
+      <h2>Pedido Realizado</h2>
+      <p>¡Gracias por tu compra!</p>
+      <ul style={{ listStyleType: "none", padding: 0, margin: 8 }}>
+        <li>
+          <h4>Pedido realizado</h4>
+          <p>11 de junio de 2024</p>
+        </li>
+        <li>
+          <h4>Pago confirmado</h4>
+          <p>12 de junio de 2024</p>
+        </li>
+      </ul>
+    </div>
+    <div class="status-item">
+      <h3>El vendedor está preparando tu producto</h3>
+      <p>Estamos preparando tu pedido para el envío.</p>
+    </div>
+    <div class="status-item">
+      <h3>Compra Despachada</h3>
+      <p>Tu compra ha sido despachada y está en camino.</p>
+    </div>
+    <div class="status-item">
+      <h3>En Envío a tu Domicilio</h3>
+      <p>Tu pedido está en camino a tu domicilio.</p>
+    </div>
+    <div class="status-item">
+      <h3>¡Recibiste tu Compra!</h3>
+      <p>¡Felicidades! Tu compra ha sido entregada.</p>
+    </div>
+  </div>
+  <div class="guide">
+    <div class="guide-item"></div>
+    <div class="guide-item"></div>
+    <div class="guide-item"></div>
+    <div class="guide-item"></div>
+    <div class="guide-item"></div>
+  </div>
+</div>
+
+
           <div style={{ marginBottom: "20px", fontSize: "18px" }}>
             <EmailIcon /> Cómo seguir el pedido?
             <p>
-              Te enviamos un email con un link a esta página, para que puedas seguir la entrega de tu compra.
+              Te enviamos un email con un link a esta página, para que puedas
+              seguir la entrega de tu compra.
             </p>
             <ShoppingBagIcon /> Información del pedido
-            <p>Datos ingresados previamente en el Checkout: Información del cliente, detalles de envío, detalles de pago</p>
+            <p>
+              Datos ingresados previamente en el Checkout: Información del
+              cliente, detalles de envío, detalles de pago
+            </p>
           </div>
           <div className="ec">
             <h4 className="et">Comunicate con nosotros</h4>
-            <a href="/" className="b">Seguir comprando</a>
+            <a href="/" className="b">
+              Seguir comprando
+            </a>
           </div>
         </div>
       ) : (
@@ -96,58 +155,67 @@ export const Checkout = () => {
           </p>
           <p
             className="checkout-info"
-            style={{ display: "flex", justifyContent: "center", fontSize: "15px" }}
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              fontSize: "15px",
+            }}
           >
             Por favor, ingresa estos datos:
           </p>
           <form onSubmit={handleSubmit} className="checkout-form">
             <TextField
               required
-              id="standard-required"
+              id="standard-required1"
               label="Nombre"
               defaultValue=""
               variant="standard"
               onChange={handleChange}
               name="name"
+              autoComplete="username"
             />
             <TextField
               required
-              id="standard-disabled"
+              id="standard-required2"
               label="Apellido"
               defaultValue=""
               variant="standard"
               onChange={handleChange}
               name="lastName"
+              autoComplete="username"
             />
             <TextField
               required
-              id="standard-password-input"
+              id="standard-required3"
               label="DNI"
               type="id"
               autoComplete="current-password"
               variant="standard"
               onChange={handleChange}
               name="dni"
+              autoComplete="username"
             />
             <TextField
               required
-              id="standard-password-input"
+              id="standard-required4"
               label="Dirección"
               type="password"
               autoComplete="current-password"
               variant="standard"
               onChange={handleChange}
               name="address"
+              autoComplete="username"
             />
             <TextField
               required
-              id="standard-password-input"
+              id="standard-required5"
               label="Ubicación"
               type=""
               autoComplete="current-password"
               variant="standard"
               onChange={handleChange}
               name="location"
+              autoComplete="username"
             />
             <div className="checkout-button">
               <Button
@@ -163,20 +231,25 @@ export const Checkout = () => {
         </div>
       )}
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-        <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>¡COMPRA CONFIRMADA!</DialogTitle>
+        <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>
+          ¡COMPRA CONFIRMADA!
+        </DialogTitle>
         <DialogContent style={{ backgroundColor: "#ffffe0" }}>
-          <DialogContentText style={{ color: "#333333", marginTop:"15px" }}>
-            ¡Felicidades! Tu compra ha sido confirmada. A continuación, te daremos un código de seguimiento para que estés al día con los estados de tu compra. 
+          <DialogContentText style={{ color: "#333333", marginTop: "15px" }}>
+            ¡Felicidades! Tu compra ha sido confirmada. A continuación, te
+            daremos un código de seguimiento para que estés al día con los
+            estados de tu compra.
           </DialogContentText>
 
-          <DialogContentText style={{ color: "#ff9999", marginTop:"40px", textAlign: "center"  }}>
-            Si no realizaste esta compra o deseas cancelarla, ponte en contacto con nosotros lo antes posible.
+          <DialogContentText
+            style={{ color: "#ff9999", marginTop: "40px", textAlign: "center" }}
+          >
+            Si no realizaste esta compra o deseas cancelarla, ponte en contacto
+            con nosotros lo antes posible.
           </DialogContentText>
-
-
         </DialogContent>
         <DialogActions style={{ backgroundColor: "#ffffe0" }}>
-          <Button onClick={handleClose}  variant="outlined" color="secondary" >
+          <Button onClick={handleClose} variant="outlined" color="secondary">
             Cerrar
           </Button>
         </DialogActions>
