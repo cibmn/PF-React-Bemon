@@ -1,14 +1,26 @@
-import { useContext } from "react";
-import React, { useState } from "react"; 
+import { useContext, useState } from "react";
+import React from "react"; 
 import { CartContext } from "../../../context/CartContext";
 import CounterContainer from "../../common/counter/CounterContainer";
 import Button from "@mui/material/Button"; 
+import Dialog from "@mui/material/Dialog";
+import DialogTitle from "@mui/material/DialogTitle";
+import DialogContent from "@mui/material/DialogContent";
+import DialogActions from "@mui/material/DialogActions";
 import "./ItemDetailContainer.css";
 
 const ItemDetail = ({ item, initial }) => {
   const { addToCart } = useContext(CartContext);
   const [limpiadorSeleccionado, setLimpiadorSeleccionado] = useState(false);
+  const [openModal, setOpenModal] = useState(false);
 
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   const handleAddToCart = (quantity) => {
     let precioTotal = item.price; 
@@ -18,7 +30,9 @@ const ItemDetail = ({ item, initial }) => {
     }
 
     addToCart({ ...item, quantity, precio: precioTotal });
+    handleOpenModal();
   };
+
   return (
     <div className="containerItemDetail">
       <div className="leftColumn">
@@ -106,6 +120,20 @@ const ItemDetail = ({ item, initial }) => {
           <p>Texto desplegable de usos y cuidados</p>
         </div>
       </div>
+
+      <Dialog open={openModal} onClose={handleCloseModal}>
+        <DialogTitle>Producto Agregado al Carrito</DialogTitle>
+        <DialogContent>
+          <p>¡El producto se ha agregado correctamente! 
+          </p>
+          <p>Ingresa al carrito para hacer modificaciones y finalizar la compra.</p>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseModal} color="primary">
+            Ok
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };

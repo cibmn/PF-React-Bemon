@@ -85,49 +85,40 @@ export const Checkout = () => {
             </p>
           </div>
 
-
-          <div class="status-chart">
-  <div class="status-items">
-    <div class="status-item active">
-      <h2>Pedido Realizado</h2>
-      <p>¡Gracias por tu compra!</p>
-      <ul style={{ listStyleType: "none", padding: 0, margin: 8 }}>
-        <li>
-          <h4>Pedido realizado</h4>
-          <p>11 de junio de 2024</p>
-        </li>
-        <li>
-          <h4>Pago confirmado</h4>
-          <p>12 de junio de 2024</p>
-        </li>
-      </ul>
-    </div>
-    <div class="status-item">
-      <h3>El vendedor está preparando tu producto</h3>
-      <p>Estamos preparando tu pedido para el envío.</p>
-    </div>
-    <div class="status-item">
-      <h3>Compra Despachada</h3>
-      <p>Tu compra ha sido despachada y está en camino.</p>
-    </div>
-    <div class="status-item">
-      <h3>En Envío a tu Domicilio</h3>
-      <p>Tu pedido está en camino a tu domicilio.</p>
-    </div>
-    <div class="status-item">
-      <h3>¡Recibiste tu Compra!</h3>
-      <p>¡Felicidades! Tu compra ha sido entregada.</p>
-    </div>
-  </div>
-  <div class="guide">
-    <div class="guide-item"></div>
-    <div class="guide-item"></div>
-    <div class="guide-item"></div>
-    <div class="guide-item"></div>
-    <div class="guide-item"></div>
-  </div>
-</div>
-
+          <div className="status-chart">
+            <div className="status-items">
+              <div className="status-item active">
+                <h2>Pedido Realizado</h2>
+                <p>¡Gracias por tu compra!</p>
+                <ul style={{ listStyleType: "none", padding: 0, margin: 8 }}>
+                  <li>
+                    <h4>Pedido realizado</h4>
+                    <p>11 de junio de 2024</p>
+                  </li>
+                  <li>
+                    <h4>Pago confirmado</h4>
+                    <p>12 de junio de 2024</p>
+                  </li>
+                </ul>
+              </div>
+              <div className="status-item">
+                <h3>El vendedor está preparando tu producto</h3>
+                <p>Estamos preparando tu pedido para el envío.</p>
+              </div>
+              <div className="status-item">
+                <h3>Compra Despachada</h3>
+                <p>Tu compra ha sido despachada y está en camino.</p>
+              </div>
+              <div className="status-item">
+                <h3>En Envío a tu Domicilio</h3>
+                <p>Tu pedido está en camino a tu domicilio.</p>
+              </div>
+              <div className="status-item">
+                <h3>¡Recibiste tu Compra!</h3>
+                <p>¡Felicidades! Tu compra ha sido entregada.</p>
+              </div>
+            </div>
+          </div>
 
           <div style={{ marginBottom: "20px", fontSize: "18px" }}>
             <EmailIcon /> Cómo seguir el pedido?
@@ -172,7 +163,7 @@ export const Checkout = () => {
               variant="standard"
               onChange={handleChange}
               name="name"
-              autoComplete="username"
+              autoComplete="given-name"
             />
             <TextField
               required
@@ -182,40 +173,57 @@ export const Checkout = () => {
               variant="standard"
               onChange={handleChange}
               name="lastName"
-              autoComplete="username"
+              autoComplete="family-name"
             />
             <TextField
               required
               id="standard-required3"
               label="DNI"
-              type="id"
-              autoComplete="current-password"
+              type="text"
               variant="standard"
               onChange={handleChange}
               name="dni"
-              autoComplete="username"
+              autoComplete="national-id"
             />
             <TextField
               required
               id="standard-required4"
               label="Dirección"
-              type="password"
-              autoComplete="current-password"
+              type="text"
               variant="standard"
               onChange={handleChange}
               name="address"
-              autoComplete="username"
+              autoComplete="street-address"
             />
             <TextField
               required
               id="standard-required5"
               label="Ubicación"
-              type=""
-              autoComplete="current-password"
+              type="text"
               variant="standard"
               onChange={handleChange}
               name="location"
-              autoComplete="username"
+              autoComplete="address-level2"
+            />
+            <TextField
+              required
+              id="standard-required6"
+              label="Email"
+              type="email"
+              variant="standard"
+              onChange={handleChange}
+              name="email"
+              autoComplete="email"
+            />
+            <TextField
+              required
+              id="standard-required7"
+              label="Teléfono"
+              type="tel"
+              variant="standard"
+              onChange={handleChange}
+              name="phone"
+              autoComplete="tel"
             />
             <div className="checkout-button">
               <Button
