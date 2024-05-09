@@ -58,7 +58,7 @@ const ItemDetail = ({ item, initial }) => {
               {Array.isArray(item.color) ? (
                 item.color.map((color, index) => (
                   <li key={index}>
-                    {index > 0 ? " - " : ""}
+                    {index > 0 ? "- " : ""}
                     {color}
                   </li>
                 ))

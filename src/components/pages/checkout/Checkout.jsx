@@ -1,12 +1,4 @@
-import {
-  Button,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -27,6 +19,7 @@ export const Checkout = () => {
     location: "",
   });
   const [open, setOpen] = useState(false);
+  const [stockUpdated, setStockUpdated] = useState(false); // Nuevo estado para manejar si el stock se actualizó correctamente
 
   const handleChange = (event) => {
     let { name, value } = event.target;
@@ -42,6 +35,8 @@ export const Checkout = () => {
     };
 
     try {
+      setOpen(true);
+
       const ordersCollection = collection(db, "orders");
       const res = await addDoc(ordersCollection, obj);
       setOrderId(res.id);
@@ -53,14 +48,19 @@ export const Checkout = () => {
         })
       );
 
+      setStockUpdated(true); 
       clearCart();
-      setOpen(true);
-    } catch (error) {}
+    } catch (error) {
+      
+    }
   };
 
   const handleClose = () => {
     setOpen(false);
+    setStockUpdated(false); 
+    clearCart();
   };
+  
 
   return (
     <div className="checkout-container">
@@ -241,7 +241,7 @@ export const Checkout = () => {
           </form>
         </div>
       )}
-      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+  <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
         <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>
           ¡COMPRA CONFIRMADA!
         </DialogTitle>
