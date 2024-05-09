@@ -23,7 +23,7 @@ function App() {
             <Route path="/cart" element={<CartContainer />} />
             <Route path="/community" element={<Community />} />
             <Route path="/more" element={<More />} />
-            <Route path="*" element={<h1>Error! La página no existe</h1>} />
+            <Route path="*" element={<h1> Error! La página no existe.</h1>} />
           </Route>
         </Routes>
       </CartContextProvider>
