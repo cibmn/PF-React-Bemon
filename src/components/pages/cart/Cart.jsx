@@ -107,7 +107,10 @@ const Cart = () => {
                           className="product-option"
                           style={{ marginTop: "10px" }}
                         >
-                          Color: {product.color.join(" - ")}
+                          Color:{" "}
+                          {Array.isArray(product.color)
+                            ? product.color.join(" - ")
+                            : product.color}
                         </div>
                         <div
                           className="product-option"
@@ -122,15 +125,15 @@ const Cart = () => {
                           Precio por unidad: ${product.price}.- x{" "}
                           {product.quantity} unidades
                           <div>
-                          <Button
-                            variant="outlined"
-                            size="small"
-                            color="error"
-                            style={{ marginTop: "8px" }}
-                            onClick={() => deleteById(product.id)}
-                          >
-                            Quitar
-                          </Button>
+                            <Button
+                              variant="outlined"
+                              size="small"
+                              color="error"
+                              style={{ marginTop: "8px" }}
+                              onClick={() => deleteById(product.id)}
+                            >
+                              Quitar
+                            </Button>
                           </div>
                         </div>
                       </dl>

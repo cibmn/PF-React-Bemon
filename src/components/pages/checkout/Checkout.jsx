@@ -25,7 +25,7 @@ export const Checkout = () => {
     setInfo({ ...info, [name]: value });
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     let obj = {
       buyer: info,
@@ -33,22 +33,22 @@ export const Checkout = () => {
       total: getTotalPrice(),
     };
   
-    let ordersCollection = collection(db, "orders");
-    addDoc(ordersCollection, obj)
-      .then((res) => {
-        setOrderId(res.id);
-        cart.forEach((product) => {
-          let refDoc = doc(db, "products", product.id);
-          updateDoc(refDoc, { stock: product.stock - product.quantity });
-        });
-        clearCart();
-        setOpen(true);
-      })
-      .catch((error) => {
-      });
+    try {
+      const ordersCollection = collection(db, "orders");
+      const res = await addDoc(ordersCollection, obj);
+      setOrderId(res.id);
+
+      await Promise.all(cart.map(async (product) => {
+        const refDoc = doc(db, "products", product.id);
+        await updateDoc(refDoc, { stock: product.stock - product.quantity });
+      }));
+      
+      clearCart(); 
+      setOpen(true); 
+    } catch (error) {
+    }
   };
   
-
   const handleClose = () => {
     setOpen(false);
   };
