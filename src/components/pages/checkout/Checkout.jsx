@@ -1,12 +1,4 @@
-import {
-  Button,
-  TextField,
-  Dialog,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
-  DialogTitle,
-} from "@mui/material";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -24,7 +16,7 @@ export const Checkout = () => {
     lastName: "",
     dni: "",
     address: "",
-    location: "",
+    location: ""
   });
   const [open, setOpen] = useState(false);
 
@@ -40,20 +32,22 @@ export const Checkout = () => {
       items: cart,
       total: getTotalPrice(),
     };
-
+  
     let ordersCollection = collection(db, "orders");
     addDoc(ordersCollection, obj)
-      .then((res) => setOrderId(res.id))
-      .catch((error) => console.log(error));
-
-    cart.forEach((product) => {
-      let refDoc = doc(db, "products", product.id);
-      updateDoc(refDoc, { stock: product.stock - product.quantity });
-    });
-
-    clearCart();
-    setOpen(true);
+      .then((res) => {
+        setOrderId(res.id);
+        cart.forEach((product) => {
+          let refDoc = doc(db, "products", product.id);
+          updateDoc(refDoc, { stock: product.stock - product.quantity });
+        });
+        clearCart();
+        setOpen(true);
+      })
+      .catch((error) => {
+      });
   };
+  
 
   const handleClose = () => {
     setOpen(false);
@@ -239,25 +233,20 @@ export const Checkout = () => {
         </div>
       )}
       <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
-        <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>
-          ¡COMPRA CONFIRMADA!
-        </DialogTitle>
+        <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>¡COMPRA CONFIRMADA!</DialogTitle>
         <DialogContent style={{ backgroundColor: "#ffffe0" }}>
-          <DialogContentText style={{ color: "#333333", marginTop: "15px" }}>
-            ¡Felicidades! Tu compra ha sido confirmada. A continuación, te
-            daremos un código de seguimiento para que estés al día con los
-            estados de tu compra.
+          <DialogContentText style={{ color: "#333333", marginTop:"15px" }}>
+            ¡Felicidades! Tu compra ha sido confirmada. A continuación, te daremos un código de seguimiento para que estés al día con los estados de tu compra. 
           </DialogContentText>
 
-          <DialogContentText
-            style={{ color: "#ff9999", marginTop: "40px", textAlign: "center" }}
-          >
-            Si no realizaste esta compra o deseas cancelarla, ponte en contacto
-            con nosotros lo antes posible.
+          <DialogContentText style={{ color: "#ff9999", marginTop:"40px", textAlign: "center"  }}>
+            Si no realizaste esta compra o deseas cancelarla, ponte en contacto con nosotros lo antes posible.
           </DialogContentText>
+
+
         </DialogContent>
         <DialogActions style={{ backgroundColor: "#ffffe0" }}>
-          <Button onClick={handleClose} variant="outlined" color="secondary">
+          <Button onClick={handleClose}  variant="outlined" color="secondary" >
             Cerrar
           </Button>
         </DialogActions>
