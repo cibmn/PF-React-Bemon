@@ -24,7 +24,7 @@ const ProductCard = ({ title, description, price, img, id }) => {
         </CardContent>
         <CardActions style={{ justifyContent: "flex-end" }}>
           <Link to={`/itemDetail/${id}`}>
-            <Button size="small">Ver detalle</Button>
+            <Button size="small" style={{ color: "#72995A" }}   >Ver detalle</Button>
           </Link>
         </CardActions>
       </Card>

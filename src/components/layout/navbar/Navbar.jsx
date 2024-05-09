@@ -24,13 +24,13 @@ export const Navbar = () => {
           <div className="centerSection">
             <ul className="categories">
               <li className="navItem">
-                <Link to="/category/mats" className="navbarLink">
-                  Mats
+                <Link to="/category/newArrivals" className="navbarLink redLink">
+                  New Arrivals
                 </Link>
               </li>
               <li className="navItem">
-                <Link to="/category/newArrivals" className="navbarLink redLink">
-                  New Arrivals
+                <Link to="/category/mats" className="navbarLink">
+                  Mats
                 </Link>
               </li>
               <li className="navItem">

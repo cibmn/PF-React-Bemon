@@ -160,7 +160,7 @@ export const products = [
       price: 35000,
       image: "https://res.cloudinary.com/dg1pxjbvm/image/upload/v1714846211/yoga-mat-spray-6_dkolou.jpg",
       stock: 80,
-      type: "propsAccessories",
+      type: ["propsAccessories", "newArrivals"],
       color: "Lavanda",
       size: ["4 oz (118ml)", "8 oz (273ml)", "33 oz (946ml)"],
     }
