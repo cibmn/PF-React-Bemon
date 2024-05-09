@@ -1,4 +1,4 @@
-import { Button, TextField } from "@mui/material";
+import { Button, TextField, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from "@mui/material";
 import ShoppingBagIcon from "@mui/icons-material/ShoppingBag";
 import EmailIcon from "@mui/icons-material/Email";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
@@ -10,17 +10,15 @@ import "./Checkout.css";
 
 export const Checkout = () => {
   const { cart, getTotalPrice, clearCart } = useContext(CartContext);
-  console.log(cart);
-
   const [orderId, setOrderId] = useState(null);
-
-  let total = getTotalPrice();
-
   const [info, setInfo] = useState({
     name: "",
-    phone: "",
-    email: "",
+    lastName: "",
+    dni: "",
+    address: "",
+    location: ""
   });
+  const [open, setOpen] = useState(false);
 
   const handleChange = (event) => {
     let { name, value } = event.target;
@@ -32,7 +30,7 @@ export const Checkout = () => {
     let obj = {
       buyer: info,
       items: cart,
-      total: total,
+      total: getTotalPrice()
     };
 
     let ordersCollection = collection(db, "orders");
@@ -46,6 +44,11 @@ export const Checkout = () => {
     });
 
     clearCart();
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   return (
@@ -54,20 +57,17 @@ export const Checkout = () => {
         <div>
           <div style={{ marginBottom: "20px" }}>
             <h2>VER DETALLE DE MI COMPRA</h2>
-          <div className="cart-total" style={{ margin: "10px" }}>
-            <p>Total final: ${getTotalPrice()} + Envío: $5.000 nacional. (Consulte por envío internacional) </p>           
-          </div>
-          <div className="follow" style={{ marginBottom: "40px" }}>
-            <h2 style={{ color:"slategray" }}>
-              Código de seguimiento: {orderId}
-            </h2>
-          </div>
+            <div className="cart-total" style={{ margin: "10px" }}>
+              <p>Total final: ${getTotalPrice()} + Envío: $5.000 nacional. (Consulte por envío internacional) </p>
+            </div>
+            <div className="follow" style={{ marginBottom: "40px" }}>
+              <h2 style={{ color: "slategray" }}>Código de seguimiento: {orderId}</h2>
+            </div>
           </div>
           <div style={{ marginBottom: "30px" }}>
             <p>El pago fue confirmado, ya estamos preparando el pedido.</p>
             <p>
-              <LocalShippingIcon /> Llega entre el 10 de junio y el 15 de junio.
-              Destino: dirección 1234
+              <LocalShippingIcon /> Llega entre el 10 de junio y el 15 de junio. Destino: dirección 1234
             </p>
           </div>
           <div style={{ marginBottom: "30px" }}>
@@ -79,20 +79,14 @@ export const Checkout = () => {
           <div style={{ marginBottom: "20px", fontSize: "18px" }}>
             <EmailIcon /> Cómo seguir el pedido?
             <p>
-              Te enviamos un email con un link a esta página, para que puedas
-              seguir la entrega de tu compra.
+              Te enviamos un email con un link a esta página, para que puedas seguir la entrega de tu compra.
             </p>
             <ShoppingBagIcon /> Información del pedido
-            <p>
-              Datos ingresados previamente en el Checkout: Información del
-              cliente, detalles de envío, detalles de pago
-            </p>
+            <p>Datos ingresados previamente en el Checkout: Información del cliente, detalles de envío, detalles de pago</p>
           </div>
           <div className="ec">
             <h4 className="et">Comunicate con nosotros</h4>
-            <a href="/" className="b" >
-              Seguir comprando
-            </a>
+            <a href="/" className="b">Seguir comprando</a>
           </div>
         </div>
       ) : (
@@ -102,53 +96,91 @@ export const Checkout = () => {
           </p>
           <p
             className="checkout-info"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              fontSize: "15px",
-            }}
+            style={{ display: "flex", justifyContent: "center", fontSize: "15px" }}
           >
             Por favor, ingresa estos datos:
           </p>
           <form onSubmit={handleSubmit} className="checkout-form">
             <TextField
-              variant="outlined"
-              type="text"
+              required
+              id="standard-required"
               label="Nombre"
+              defaultValue=""
+              variant="standard"
               onChange={handleChange}
               name="name"
-              className="checkout-input"
-              style={{ marginBottom: "10px" }}
             />
             <TextField
-              variant="outlined"
-              type="text"
-              label="Telefono"
+              required
+              id="standard-disabled"
+              label="Apellido"
+              defaultValue=""
+              variant="standard"
               onChange={handleChange}
-              name="phone"
-              className="checkout-input"
-              style={{ marginBottom: "10px" }}
+              name="lastName"
             />
             <TextField
-              variant="outlined"
-              type="text"
-              label="Email"
+              required
+              id="standard-password-input"
+              label="DNI"
+              type="id"
+              autoComplete="current-password"
+              variant="standard"
               onChange={handleChange}
-              name="email"
-              className="checkout-input"
-              style={{ marginBottom: "20px" }}
+              name="dni"
             />
-            <Button
-              variant="contained"
-              type="submit"
-              className="checkout-button"
-              style={{ backgroundColor: "green", color: "white" }}
-            >
-              enviar
-            </Button>
+            <TextField
+              required
+              id="standard-password-input"
+              label="Dirección"
+              type="password"
+              autoComplete="current-password"
+              variant="standard"
+              onChange={handleChange}
+              name="address"
+            />
+            <TextField
+              required
+              id="standard-password-input"
+              label="Ubicación"
+              type=""
+              autoComplete="current-password"
+              variant="standard"
+              onChange={handleChange}
+              name="location"
+            />
+            <div className="checkout-button">
+              <Button
+                variant="contained"
+                type="submit"
+                className="checkout-button"
+                style={{ backgroundColor: "green", color: "white" }}
+              >
+                enviar
+              </Button>
+            </div>
           </form>
         </div>
       )}
+      <Dialog open={open} onClose={handleClose} maxWidth="sm" fullWidth>
+        <DialogTitle style={{ backgroundColor: "#ffab40", color: "#ffffff" }}>¡COMPRA CONFIRMADA!</DialogTitle>
+        <DialogContent style={{ backgroundColor: "#ffffe0" }}>
+          <DialogContentText style={{ color: "#333333", marginTop:"15px" }}>
+            ¡Felicidades! Tu compra ha sido confirmada. A continuación, te daremos un código de seguimiento para que estés al día con los estados de tu compra. 
+          </DialogContentText>
+
+          <DialogContentText style={{ color: "#ff9999", marginTop:"40px", textAlign: "center"  }}>
+            Si no realizaste esta compra o deseas cancelarla, ponte en contacto con nosotros lo antes posible.
+          </DialogContentText>
+
+
+        </DialogContent>
+        <DialogActions style={{ backgroundColor: "#ffffe0" }}>
+          <Button onClick={handleClose}  variant="outlined" color="secondary" >
+            Cerrar
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
