@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import React from "react"; 
+import React, { useContext, useState } from "react";
 import { CartContext } from "../../../context/CartContext";
 import CounterContainer from "../../common/counter/CounterContainer";
 import Button from "@mui/material/Button"; 
@@ -85,13 +84,16 @@ const ItemDetail = ({ item, initial }) => {
           </div>
         </div>
         <div className="addons">
+          <div>
+            <hr style={{ margin: "0 0 30px 0%", width: "94%", boxSizing: "border-box" }} />
+          </div>
           <label htmlFor="limpiadorCheckbox">
             ¿Quieres agregar Limpiador de Mat y paño? +$35.000
           </label>
           <input
             type="checkbox"
             id="limpiadorCheckbox"
-            style={{ marginLeft: "10px", width: "20px" }}
+            style={{ marginLeft: "10px", width: "20px", color:"red" }}
             onChange={(e) => setLimpiadorSeleccionado(e.target.checked)}
           />
         </div>
@@ -109,7 +111,8 @@ const ItemDetail = ({ item, initial }) => {
           </div>
         </div>
         <div className="add-to-cart">
-          <Button variant="contained" size="small" onClick={handleAddToCart}>Agregar SET COMPLETO</Button> {/* Usamos el componente Button de Material-UI */}
+          <Button variant="contained" size="small" onClick={handleAddToCart} style={{ marginTop: "10px", backgroundColor:"red" }}>Agregar SET COMPLETO
+          </Button>{" "} 
         </div>
         <div className="additional-sections">
           <h3>Generalidades +</h3>
@@ -122,9 +125,9 @@ const ItemDetail = ({ item, initial }) => {
       </div>
 
       <Dialog open={openModal} onClose={handleCloseModal}>
-        <DialogTitle>Producto Agregado al Carrito</DialogTitle>
+        <DialogTitle>Agregado al Carrito!</DialogTitle>
         <DialogContent>
-          <p>¡El producto se ha agregado correctamente! 
+          <p>Guardamos tu producto con sus preferenicas en el carrito. 
           </p>
           <p>Ingresa al carrito para hacer modificaciones y finalizar la compra.</p>
         </DialogContent>

@@ -98,7 +98,7 @@
 
 .details {
   margin-top: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 60px;
 }
 
 .details h2 {
@@ -142,8 +142,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: auto; /* Ancho predeterminado para el contenedor */
-  height: auto; /* Altura predeterminada para el contenedor */
+  width: auto; 
+  height: auto; 
 }
 
 .containerImage img {
@@ -152,4 +152,10 @@
   max-width: 90%; 
   max-height: 800px; 
   object-fit: contain; 
+}
+
+.error-message {
+  margin-bottom: 8px;
+  font-size: 18px;
+  text-shadow: 0 0 1px rgb(224, 90, 90);
 }

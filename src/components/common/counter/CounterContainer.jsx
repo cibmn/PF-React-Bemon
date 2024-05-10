@@ -1,15 +1,17 @@
-// CounterContainer.jsx
 import React, { useState } from "react";
 import CounterPresentacional from "./CounterPresentacional";
 
 export const CounterContainer = ({ stock, initial = 1, onAdd }) => {
   const [contador, setContador] = useState(initial);
+  const [maxStockError, setMaxStockError] = useState(false);
+  const [minQuantityError, setMinQuantityError] = useState(false);
 
   const sumar = () => {
     if (contador < stock) {
       setContador(contador + 1);
     } else {
-      alert("¡Máximo en stock!");
+      setMaxStockError(true);
+      setTimeout(() => setMaxStockError(false), 3000); 
     }
   };
 
@@ -17,7 +19,8 @@ export const CounterContainer = ({ stock, initial = 1, onAdd }) => {
     if (contador > 1) {
       setContador(contador - 1);
     } else {
-      alert("No puedes tener menos de 1");
+      setMinQuantityError(true);
+      setTimeout(() => setMinQuantityError(false), 3000); 
     }
   };
 
@@ -32,7 +35,13 @@ export const CounterContainer = ({ stock, initial = 1, onAdd }) => {
     onAdd: handleAdd,
   };
 
-  return <CounterPresentacional {...objectProps} />;
+  return (
+    <div>
+      <CounterPresentacional {...objectProps} />
+      {minQuantityError && <p className="error-message">La cantidad mínima requerida es 1 cantidad</p>}
+      {maxStockError && <p className="error-message">Este es nuestro límite de stock disponible </p>}
+    </div>
+  );
 };
 
 export default CounterContainer;
