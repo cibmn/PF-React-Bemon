@@ -4,7 +4,7 @@ import { CartContext } from "../../../context/CartContext";
 
 const CartContainer = () => {
   const { cart, clearCart, deleteById, getTotalPrice } = useContext(CartContext);
-  const total = getTotalPrice(); // Calcula el total
+  const total = getTotalPrice();
 
   return (
     <Cart
