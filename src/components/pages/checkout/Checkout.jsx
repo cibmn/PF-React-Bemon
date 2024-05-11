@@ -19,7 +19,7 @@ export const Checkout = () => {
     location: "",
   });
   const [open, setOpen] = useState(false);
-  const [stockUpdated, setStockUpdated] = useState(false); // Nuevo estado para manejar si el stock se actualizó correctamente
+  const [stockUpdated, setStockUpdated] = useState(false); 
 
   const handleChange = (event) => {
     let { name, value } = event.target;
